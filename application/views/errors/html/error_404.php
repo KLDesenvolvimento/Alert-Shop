@@ -53,12 +53,36 @@ code {
 p {
 	margin: 12px 15px 12px 15px;
 }
+
+#txt1{
+
+	color:  black;
+	font-size: 150px;
+	position: relative;
+	float: right;
+	right: 300px;
+	bottom: 100px;
+
+}
+
+#txt2{
+
+	color:  black;
+	font-size: 150px;
+	position: relative;
+	float: right;
+	top: 100px;
+
+}
+
 </style>
 </head>
 <body>
 	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+		<h1 style="text-align:center;">404 Página não encontrada</h1>
+		<img src="http://192.168.0.116/alert_shop/img/homer.gif" style='text-align:center;'>
+		<h4 id="txt1">D'oh!</h4>
+		<h4 id="txt2">404</h4>
 	</div>
 </body>
 </html>

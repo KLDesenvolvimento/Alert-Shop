@@ -15,7 +15,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="#" id="logo" name="logo" class="navbar-brand">Alert Shop</a>
+                <a href="<?php echo base_url('home'); ?>" id="logo" name="logo" class="navbar-brand">Alert Shop</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="dropdown">                    
@@ -37,7 +37,7 @@
                 <li><a href="#">Sobre</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Sair</a></li>
+                <li><a href="<?php echo base_url(); ?>">Sair</a></li>
             </ul>
         </div>
     </nav>

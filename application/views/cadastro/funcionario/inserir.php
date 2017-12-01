@@ -87,6 +87,30 @@
 
 					</div><!--row-->
 				</div>
+				<br>
+				<div class="row" style="border:1px solid #eee;padding:20px;margin:0px;border-left-width:5px;border-left-color:#1b809e;">
+
+						<h4 style="color:#1e90ff;border-bottom:1px solid #CCCCCC;padding:5px 0px;"><span style="font-size:14px;margin-right:5px;" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Endereço</h4>
+
+						<div class="row">
+
+							<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+								<div class="form-group">
+									<label>CEP</label>
+									<input type="tel" name="cep" id="cep" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3">
+								<div class="form-group">
+									<label>Rua</label>
+									<input type="text" name="rua" id="rua" class="form-control">
+								</div>
+							</div>
+
+						</div>		
+				</div>
+
 				</div><!--panel-body-->
 
 			</div><!--panel-->

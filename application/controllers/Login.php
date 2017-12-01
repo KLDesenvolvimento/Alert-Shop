@@ -48,7 +48,6 @@
 				else
 				{
 
-					$this->load->view('cabecalho');
 					$this->load->view('mensagem');
 
 				}
