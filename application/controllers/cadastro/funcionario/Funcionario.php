@@ -15,37 +15,64 @@
 		public function funcionario()
 		{
 
-			$include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
-			$data['includeJs'] = $include;
+			// getFuncao($retorno);
 
-			$this->load->view('cabecalho', $data);
-			$this->load->view('cadastro/funcionario/inserir');
+			$retorno['funcao'] = $this->funcionarioDao->getFuncao();
 
-		}
-
-		public function getFuncao()
-		{
-
-			$retorno = $this->funcionarioDao->getFuncao($dados);
-
-			var_dump($retorno);
-			die();
+			$retorno['setor'] = $this->funcionarioDao->getSetor();
 
 			if($retorno)
 			{
 
+				$include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
+				$data['includeJs'] = $include;
+
+				$this->load->view('cabecalho', $data);
 				$this->load->view('cadastro/funcionario/inserir.php', $retorno);
 
 			}
+			else
+			{
+
+				return false;
+
+			}
+
+
+			// $include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
+			// $data['includeJs'] = $include;
+
+			// $this->load->view('cabecalho', $data);
+			// $this->load->view('cadastro/funcionario/inserir', $retorno);
 
 		}
 
-		public function getSetor()
-		{
+		// public function getFuncao()
+		// {
+
+		// 	$retorno['funcao'] = $this->funcionarioDao->getFuncao();
+
+		// 	if($retorno)
+		// 	{
+
+		// 		return $retorno;
+
+		// 	}
+		// 	else
+		// 	{
+
+		// 		return false;
+
+		// 	}
+
+		// }
+
+		// public function getSetor()
+		// {
 
 
 
-		}
+		// }
 
 	}
 

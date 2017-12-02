@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
@@ -21,7 +20,7 @@
 
 					<div class="row">
 
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 							<div class="form-group">
 
 								<label>Nome Completo</label>
@@ -94,7 +93,7 @@
 
 					<div class="row">
 
-						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-1">
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>CEP</label>
 								<input type="tel" name="cep" id="cep" class="form-control">
@@ -108,7 +107,7 @@
 							</div>
 						</div>
 
-						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-1">
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>Nº Casa</label>
 								<input type="tel" name="numCasa" id="numCasa" class="form-control" placeholder="Nº da Casa">
@@ -184,14 +183,14 @@
 
 					<div class="row">
 
-						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3">
 							<div class="form-group">
 								<label>Usuario</label>
 								<input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nome de usuário">
 							</div>
 						</div>
 
-						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3">
 							<div class="form-group">
 								<label>Senha</label>
 								<input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
@@ -203,6 +202,13 @@
 								<label>Setor</label>
 								<select name="setor" id="setor" class="form-control">
 									<option value="">Selecione</option>
+
+									<?php foreach($setor as $row){ ?>
+
+									<option value="<?php echo $row->idSetor; ?>"><?php echo $row->nomeSetor; ?></option>
+
+									<?php } ?>
+
 								</select>
 							</div>
 						</div>
@@ -212,6 +218,13 @@
 								<label>Função</label>
 								<select name="funcao" id="funcao" class="form-control">
 									<option value="">Selecione</option>
+
+									<?php foreach($funcao as $row){ ?>
+
+									<option value="<?php echo $row->idFuncao; ?>"><?php echo $row->nomeFuncao; ?></option>
+
+									<?php } ?>
+
 								</select>
 							</div>
 						</div>

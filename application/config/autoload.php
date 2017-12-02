@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('loginDao');
+$autoload['model'] = array('loginDao', 'cadastro/funcionario/funcionarioDao');
