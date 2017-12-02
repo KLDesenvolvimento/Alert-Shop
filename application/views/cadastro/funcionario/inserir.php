@@ -11,7 +11,7 @@
 			<div class="panel panel-default">
 
 				<div class="panel-heading">
-					Cadastrar Funcionário
+					<h5 style="font-size:20px">Cadastrar Funcionário</h5>
 				</div><!--panel-heading-->
 
 				<div class="panel-body">
@@ -81,7 +81,7 @@
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 							<div class="form-group">
 								<label>E-mail</label>
-								<input type="email" name="email" id="email" class="form-control">
+								<input type="email" name="email" id="email" class="form-control" placeholder="Ex.: kldesenvolvimento@gmail.com">
 							</div>
 						</div>
 
@@ -90,25 +90,146 @@
 				<br>
 				<div class="row" style="border:1px solid #eee;padding:20px;margin:0px;border-left-width:5px;border-left-color:#1b809e;">
 
-						<h4 style="color:#1e90ff;border-bottom:1px solid #CCCCCC;padding:5px 0px;"><span style="font-size:14px;margin-right:5px;" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Endereço</h4>
+					<h4 style="color:#1e90ff;border-bottom:1px solid #CCCCCC;padding:5px 0px;"><span style="font-size:14px;margin-right:5px;" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Endereço</h4>
 
-						<div class="row">
+					<div class="row">
 
-							<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
-								<div class="form-group">
-									<label>CEP</label>
-									<input type="tel" name="cep" id="cep" class="form-control">
-								</div>
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-1">
+							<div class="form-group">
+								<label>CEP</label>
+								<input type="tel" name="cep" id="cep" class="form-control">
 							</div>
+						</div>
 
-							<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3">
-								<div class="form-group">
-									<label>Rua</label>
-									<input type="text" name="rua" id="rua" class="form-control">
-								</div>
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-4">
+							<div class="form-group">
+								<label>Rua</label>
+								<input type="text" name="rua" id="rua" class="form-control" placeholder="Rua, Logradouro">
 							</div>
+						</div>
 
-						</div>		
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-1">
+							<div class="form-group">
+								<label>Nº Casa</label>
+								<input type="tel" name="numCasa" id="numCasa" class="form-control" placeholder="Nº da Casa">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>Bairro</label>
+								<input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>Cidade</label>
+								<input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>UF</label>
+								<select name="uf" id="uf" class="form-control">
+									<option value="">Selecione</option>
+									<option value="AC">Acre</option>
+									<option value="AL">Alagoas</option>
+									<option value="AP">Amapá</option>
+									<option value="AM">Amazonas</option>
+									<option value="BA">Bahia</option>
+									<option value="CE">Ceará</option>
+									<option value="DF">Distrito Federal</option>
+									<option value="ES">Espírito Santo</option>
+									<option value="GO">Goiás</option>
+									<option value="MA">Maranhão</option>
+									<option value="MT">Mato Grosso</option>
+									<option value="MS">Mato Grosso do Sul</option>
+									<option value="MG">Minas Gerais</option>
+									<option value="PA">Pará</option>
+									<option value="PB">Paraíba</option>
+									<option value="PR">Paraná</option>
+									<option value="PE">Pernambuco</option>
+									<option value="PI">Piauí</option>
+									<option value="RJ">Rio de Janeiro</option>
+									<option value="RN">Rio Grande do Norte</option>
+									<option value="RS">Rio Grande do Sul</option>
+									<option value="RO">Rondônia</option>
+									<option value="RR">Roraima</option>
+									<option value="SC">Santa Catarina</option>
+									<option value="SP">São Paulo</option>
+									<option value="SE">Sergipe</option>
+									<option value="TO">Tocantins</option>
+								</select>
+							</div>
+						</div>
+
+					</div>		
+					<div class="row">
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-6">
+							<div class="form-group">
+								<label>Complemento</label>
+								<textarea name="complemento" id="complemento" class="form-control" placeholder="Ex.: Pontos de referência, Cor da casa, Andar e número do Apto, Etc."></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="row" style="border:1px solid #eee;padding:20px;margin:0px;border-left-width:5px;border-left-color:#1b809e;">
+
+					<h4 style="color:#1e90ff;border-bottom:1px solid #CCCCCC;padding:5px 0px;"><span style="font-size:14px;margin-right:5px;" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Funções</h4>
+
+					<div class="row">
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>Usuario</label>
+								<input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nome de usuário">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>Senha</label>
+								<input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>Setor</label>
+								<select name="setor" id="setor" class="form-control">
+									<option value="">Selecione</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
+							<div class="form-group">
+								<label>Função</label>
+								<select name="funcao" id="funcao" class="form-control">
+									<option value="">Selecione</option>
+								</select>
+							</div>
+						</div>
+
+					</div><!--row-->
+
+				</div><!--row-->
+
+				<br>
+
+				<div class="row">
+
+					<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3 col-lg-offset-5">
+						<div class="btn-group btn-group-md btn-block">
+							<button type="button" name="salvar" id="salvar" class="btn btn-primary btn-group-lg btn-block"><span class="glyphicon glyphicon-floppy-saved"></span> Salvar</button>
+						</div>
+					</div>
+
 				</div>
 
 				</div><!--panel-body-->

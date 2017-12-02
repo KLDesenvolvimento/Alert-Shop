@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?php echo base_url('img/logo_kl.jpeg'); ?>" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.mask.min.js'); ?>"></script>
@@ -15,7 +16,8 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="<?php echo base_url('home'); ?>" id="logo" name="logo" class="navbar-brand">Alert Shop</a>
+                <!-- <a href="<?php echo base_url('home'); ?>" id="logo" name="logo" class="navbar-brand">Alert Shop</a> -->
+                <img src="<?php echo base_url('img/logo_kl.jpeg'); ?>" alt="logo_empresa" style="width:50px; height:40px;position:relative;float:top;top:5px">
             </div>
             <ul class="nav navbar-nav">
                 <li class="dropdown">                    

@@ -23,6 +23,30 @@
 
 		}
 
+		public function getFuncao()
+		{
+
+			$retorno = $this->funcionarioDao->getFuncao($dados);
+
+			var_dump($retorno);
+			die();
+
+			if($retorno)
+			{
+
+				$this->load->view('cadastro/funcionario/inserir.php', $retorno);
+
+			}
+
+		}
+
+		public function getSetor()
+		{
+
+
+
+		}
+
 	}
 
 ?>

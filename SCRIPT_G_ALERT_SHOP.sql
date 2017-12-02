@@ -5,6 +5,33 @@ create database alert_shop;
 use alert_shop;
 
 #CRIAÇÃO DAS TABELAS DO BANCO DE DADOS
+create table empresa(
+	idEmpresa int primary key auto_increment,
+    nomeFantasia varchar(100) not null,
+    razaoSocial varchar(100) not null,
+    incEstEmpresa varchar(30) not null,
+    cnpjEmpresa char(18) not null unique
+);
+
+create table telefoneEmpresa(
+	idTelefone int primary key auto_increment,
+    tipoTelefone enum('Residencial', 'Comercial', 'Celular') not null,
+    numeroTelefone varchar(20) not null,
+	fkEmpresa int not null
+);
+
+create table enderecoEmpresa(
+	idEndereco int primary key auto_increment,
+    cep char(10) not null,
+	rua varchar(100) not null,
+    numeroCasa char(5) not null,
+	bairro varchar(50) not null,
+	cidade varchar(50) not null,
+	uf char(2) not null,
+	complemento varchar(300),
+	fkEmpresa int not null unique
+);
+
 create table funcionario(
 	idFuncionario int primary key auto_increment,
 	nomeFuncionario varchar(150) not null,
@@ -214,6 +241,8 @@ create table grupoServico(
 );
 
 #ADIÇÃO DAS CHAVES ESTRANGEIRAS
+alter table enderecoEmpresa add constraint fk_enderecoEmpresa foreign key (fkEmpresa) references empresa(idEmpresa);
+alter table telefoneEmpresa add constraint fk_telefoneEmpresa foreign key (fkEmpresa) references empresa(idEmpresa);
 alter table enderecoClienteJuridico add constraint fk_enderecoClienteJuridico foreign key (fkCliente) references clienteJuridico(idCliente);
 alter table enderecoClienteFisico add constraint fk_enderecoClienteFisico foreign key (fkCliente) references clienteFisico(idCliente);
 alter table enderecoFuncionario add constraint fk_enderecoFuncionario foreign key (fkFuncionario) references funcionario(idFuncionario);
@@ -243,8 +272,32 @@ insert into setor (
     descricaoSetor) 
 values (
 	NULL, 
-    'Desenvolvimento', 
-    'Desenvolvimento do sistema da empresa');
+    'Administrativo', 
+    'Administra a empresa no caso donos e socios.'), 
+    (
+	NULL, 
+    'Gerencia', 
+    'Administração da loja.'), 
+    (
+	NULL, 
+    'Vendas', 
+    'Fica no caixa realizando o pagamento das vendas.'), 
+    (
+	NULL, 
+    'RH', 
+    'Parte financeira da empresa como por exemplo Contabilidade'), 
+    (
+	NULL, 
+    'Estoque', 
+    'Cuida dos produtos estocados.'), 
+    (
+	NULL, 
+    'Vendas Externas', 
+    'Realiza vendas fora da empresa.'), 
+    (
+	NULL, 
+    'Serviços Gerais', 
+    'Faz manutenção nas coisas da empresa como por exemplo: Limpeza, Reparos Gerais, etc.');
 
 insert into funcao (
 	idFuncao, 
@@ -252,8 +305,32 @@ insert into funcao (
     descricaoFuncao) 
 values (
 	NULL, 
-    'Desenvolvedor WEB', 
-    'Desenvolve o sistema WEB da empresa');
+    'Administrativo', 
+    'Administra a empresa no caso donos e socios.'), 
+    (
+	NULL, 
+    'Gerente', 
+    'Administra a loja.'), 
+    (
+	NULL, 
+    'Vendedor', 
+    'Fica no caixa realizando o pagamento das vendas.'), 
+    (
+	NULL, 
+    'RH', 
+    'Cuida da parte financeira da empresa como por exemplo Contabilidade'), 
+    (
+	NULL, 
+    'Almoxarifado', 
+    'Desenvolvimento do sistema da empresa'), 
+    (
+	NULL, 
+    'Vendedor Externo', 
+    'Desenvolvimento do sistema da empresa'), 
+    (
+	NULL, 
+    'Atendente', 
+    'Desenvolvimento do sistema da empresa');
     
 insert into funcionario (
 	idFuncionario, 
