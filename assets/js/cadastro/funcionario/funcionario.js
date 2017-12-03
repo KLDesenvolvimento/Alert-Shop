@@ -62,4 +62,92 @@ $(document).ready(function(){
 	}
 
 
+		$("#salvar").on('click', function(){
+
+			var nome = $("#nome").val();
+			var cpf = $("#cpf").val();
+			var dataNascimento = $("#dataNascimento").val();
+			var sexo = $("#sexo").val();
+			var tipoTelefone = $("#tipoTelefone").val();
+			var telefone = $("#telefone").val();
+			var email = $("#email").val();
+			var cep = $("#cep").val();
+			var rua = $("#rua").val();
+			var bairro = $("#bairro").val();
+			var cidade = $("#cidade").val();
+			var numCasa = $("#numCasa").val();
+			var uf = $("#uf").val();
+			var complemento = $("#complemento").val();
+			var usuario = $("#usuario").val();
+			var senha = $("#senha").val();
+			var setor = $("#setor").val();
+			var funcao = $("#funcao").val();
+			var btnSalva = $("#salvar");
+			var formInserir = $("#inserirFuncionario");
+
+			if(nome != "" && cpf != "" && usuario != "" && senha != "")
+			{
+
+				formInserir.submit();
+
+			}
+
+			if(nome == "")
+			{
+
+				alert("Campo nome não pode estar vazio.");
+				// return false;
+
+			}
+
+			if(cpf == "")
+			{
+
+				alert("Campo CPF não pode estar vazio.");
+				// return false;
+				
+			}
+
+			if(usuario == "")
+			{
+
+				alert("Campo usuario não pode estar vazio.");
+				// return false;
+				
+			}
+
+			if(senha == "")
+			{
+
+				alert("Campo senha não pode estar vazio.");
+				// return false;
+				
+			}
+
+			return false;
+			
+		});
+
+	// function vazio(valor)
+	// {
+
+	// 	alert(valor);
+	// 		return false;
+
+	// 	if(valor == "" || valor == '' || valor == null)
+	// 	{
+
+	// 		return false;
+
+	// 	}
+	// 	else
+	// 	{
+
+	// 		return true;
+
+	// 	}
+
+	// }
+
+
 });

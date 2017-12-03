@@ -14,6 +14,9 @@
 				</div><!--panel-heading-->
 
 				<div class="panel-body">
+
+					<form method="POST" name="inserirFuncionario" id="inserirFuncionario" action="<?php echo base_url('inserir-funcionario'); ?>">
+
 					<div class="row" style="border:1px solid #eee;padding:20px;margin:0px;border-left-width:5px;border-left-color:#1b809e;">
 
 						<h4 style="color:#1e90ff;border-bottom:1px solid #CCCCCC;padding:5px 0px;"><span style="font-size:14px;margin-right:5px;" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Dados</h4>
@@ -244,6 +247,8 @@
 					</div>
 
 				</div>
+
+			</form>
 
 				</div><!--panel-body-->
 

@@ -56,4 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 //login
 $route['entrar'] = 'Login/logar';
 $route['home'] = 'Login/home';
+
+//funcionario
 $route['cadastrar-funcionario'] = 'cadastro/funcionario/Funcionario/funcionario';
+$route['inserir-funcionario'] = 'cadastro/funcionario/Funcionario/inserirFuncionario';
+$route['mensagem'] = 'cadastro/funcionario/Funcionario';

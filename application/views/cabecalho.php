@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <!-- <a href="<?php echo base_url('home'); ?>" id="logo" name="logo" class="navbar-brand">Alert Shop</a> -->
-                <img src="<?php echo base_url('img/logo_kl.jpeg'); ?>" alt="logo_empresa" style="width:50px; height:40px;position:relative;float:top;top:5px" class="img-circle">
+                <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('img/logo_kl.jpeg'); ?>" alt="logo_empresa" style="width:50px; height:40px;position:relative;float:top;top:5px" class="img-circle"></a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="dropdown">                    

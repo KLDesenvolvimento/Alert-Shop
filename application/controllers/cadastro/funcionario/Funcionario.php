@@ -47,6 +47,36 @@
 
 		}
 
+		public function inserirFuncionario()
+		{
+
+			$dados['funcionario'] = $this->input->post();
+
+			$retorno = $this->funcionarioDao->inserirFUncionario($dados['funcionario']);
+
+			if($retorno)
+			{
+
+				// $include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
+				// $data['includeJs'] = $include;
+
+				$msg['resposta'] = "Funcionário cadastrado com sucesso.";
+
+				$this->load->view('cabecalho');
+				$this->load->view('cadastro/funcionario/mensagem', $msg);
+
+			}
+			else
+			{
+
+				$msg['resposta'] = "Falha ao cadastrar funcionário.";
+				$this->load->view('cabecalho');
+				$this->load->view('cadastro/funcionario/mensagem', $msg);
+
+			}
+
+		}
+
 		// public function getFuncao()
 		// {
 
