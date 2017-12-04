@@ -8,12 +8,13 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.mask.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/funcoes.js'); ?>"></script>
     <?php echo isset($includeJs) ? $includeJs : '' ?>
 	<title>Alert Shop</title>
 </head>
 <body>
 	
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <!-- <a href="<?php echo base_url('home'); ?>" id="logo" name="logo" class="navbar-brand">Alert Shop</a> -->

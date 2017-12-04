@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <meta charset="utf-8">
-<title>404 Page Not Found</title>
+<title>404 Página não encontrada</title>
 <style type="text/css">
 
 ::selection { background-color: #E13300; color: white; }
@@ -80,7 +80,7 @@ p {
 <body>
 	<div id="container">
 		<h1 style="text-align:center;">404 Página não encontrada</h1>
-		<img src="http://192.168.0.116/alert_shop/img/homer.gif" style='text-align:center;'>
+		<img src="http://192.168.0.148/alert_shop/img/homer.gif" style='text-align:center;'>
 		<h4 id="txt1">D'oh!</h4>
 		<h4 id="txt2">404</h4>
 	</div>

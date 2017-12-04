@@ -5,6 +5,73 @@ $(document).ready(function(){
 	var cep = $("#cep");
 	var email = $("#email");
 
+	// $("#cep").on('blur', function(){
+
+	// 	buscarCep();
+
+	// });
+
+	function pegarCep() {
+                // Limpa valores do formulário de cep.
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+                // $("#ibge").val("");
+            }
+            
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("Carregando...");
+                        $("#bairro").val("Carregando...");
+                        $("#cidade").val("Carregando...");
+                        $("#uf").val("Carregando...");
+                        $("#ibge").val("Carregando...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro).attr('disabled', 'disabled');
+                                $("#bairro").val(dados.bairro).attr('disabled', 'disabled');
+                                $("#cidade").val(dados.localidade).attr('disabled', 'disabled');
+                                $("#uf").val(dados.uf).attr('disabled', 'disabled');
+                                // $("#ibge").val(dados.ibge).attr('readonly', 'readonly');
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                // limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        // limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    // limpa_formulário_cep();
+                }
+            });
+
 	email.on('keypress', function() {
 
 		// var regex = new RegExp("^[a-zA-Z0-9-Zàèìòùáéíóúâêîôûãõ\b]+$");
@@ -61,6 +128,40 @@ $(document).ready(function(){
 
 	}
 
+	//fim da função de buscar cep
+
+	//validar email
+
+	email.on('blur',function(){
+
+		// function validacaoEmail() {
+
+			usuario = email.val().substring(0, email.val().indexOf("@"));
+			dominio = email.val().substring(email.val().indexOf("@")+ 1, email.val().length);
+
+			if ((usuario.length >=1) &&
+			    (dominio.length >=3) && 
+			    (usuario.search("@")==-1) && 
+			    (dominio.search("@")==-1) &&
+			    (usuario.search(" ")==-1) && 
+			    (dominio.search(" ")==-1) &&
+			    (dominio.search(".")!=-1) &&      
+			    (dominio.indexOf(".") >=1)&& 
+			    (dominio.lastIndexOf(".") < dominio.length - 1)) {
+				document.getElementById("email").innerHTML="E-mail válido";
+				// alert("E-mail valido");
+			}
+			else
+			{
+				document.getElementById("email").innerHTML="<font color='red'>E-mail inválido </font>";
+				alert("E-mail invalido");
+				email.val("");
+			}
+		// }
+
+	});
+
+	//fim do validar email
 
 		$("#salvar").on('click', function(){
 
@@ -87,6 +188,8 @@ $(document).ready(function(){
 
 			if(nome != "" && cpf != "" && usuario != "" && senha != "")
 			{
+
+				$("#rua", "#bairro", "#cidade", "#uf").removeAttr('disabled', 'disabled');
 
 				formInserir.submit();
 

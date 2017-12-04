@@ -112,7 +112,7 @@
 
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
-								<label>Nº Casa</label>
+								<label>Número</label>
 								<input type="tel" name="numCasa" id="numCasa" class="form-control" placeholder="Nº da Casa">
 							</div>
 						</div>

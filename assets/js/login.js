@@ -4,6 +4,18 @@ $(document).ready(function(){
 
 	// alert(usuario, senha);
 
+	//logar ao apertar enter no campo senha
+	$("#senha").on('keypress', function(e){
+
+		if(e.which == 13)
+		{
+
+			$("#login").submit();
+
+		}
+
+	});
+
 	// logar ao clicar no botao
 	$('#entrar').on('click', function(){
 
