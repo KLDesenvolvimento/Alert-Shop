@@ -30,15 +30,15 @@
 					(?,?,?,?,?,?,?,?,?)";
 
 			$queryFunc = $this->db->query($sqlFunc, array(
-				$dados['nome'] != "" ? trim($dados['nome']) : NULL, 
-				$dados['cpf'] != "" ? $dados['cpf'] : NULL, 
-				trim($dados['usuario']), 
-				trim(MD5($dados['senha'])), 
-				$dados['dataNascimento'], 
-				$dados['setor'], 
-				$dados['funcao'], 
-				trim($dados['sexo']),
-				trim($dados['email'])
+				$dados['nome'] != "" ? trim($dados['nome']) : "Sem Nome", 
+				$dados['cpf'] != "" ? $dados['cpf'] : "000.000.000-00", 
+				$dados['usuario'] != "" ? trim($dados['usuario']) : "", 
+				$dados['senha'] != "" ? trim(MD5($dados['senha'])) : "", 
+				$dados['dataNascimento'] != "" ? $dados['dataNascimento'] : date('d/m/Y'), 
+				$dados['setor'] != "" ? $dados['setor'] : 0, 
+				$dados['funcao'] != "" ? $dados['funcao'] : 0, 
+				$dados['sexo'] != "" ? trim($dados['sexo']) : "",
+				$dados['email'] != "" ? trim($dados['email']) : ""
 			));
 
 			// $id = pegaIdFuncionario($dados['cpf']);
@@ -98,13 +98,13 @@
 					(?,?,?,?,?,?,?,?)";
 
 			$queryEnd = $this->db->query($sqlEnd, array(
-				trim($dados['cep']), 
-				trim($dados['rua']), 
-				trim($dados['numCasa']), 
-				trim($dados['bairro']), 
-				trim($dados['cidade']), 
-				$dados['complemento'] != "" ? trim($dados['complemento']) : NULL, 
-				trim($dados['uf']), 
+				$dados['cep'] != "" ? trim($dados['cep']) : "00.000-000", 
+				$dados['rua'] != "" ? trim($dados['rua']) : "", 
+				$dados['numCasa'] != "" ? trim($dados['numCasa']) : "", 
+				$dados['bairro'] != "" ? trim($dados['bairro']) : "", 
+				$dados['cidade'] != "" ? trim($dados['cidade']) : "", 
+				$dados['complemento'] != "" ? trim($dados['complemento']) : "", 
+				$dados['uf'] != "" ? trim($dados['uf']) : "PE", 
 				$id->idFuncionario));
 
 			if(($queryFunc) && ($queryEnd) && ($queryTel))
