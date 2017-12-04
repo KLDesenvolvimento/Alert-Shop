@@ -30,8 +30,8 @@
 					(?,?,?,?,?,?,?,?,?)";
 
 			$queryFunc = $this->db->query($sqlFunc, array(
-				trim($dados['nome']), 
-				$dados['cpf'], 
+				$dados['nome'] != "" ? trim($dados['nome']) : NULL, 
+				$dados['cpf'] != "" ? $dados['cpf'] : NULL, 
 				trim($dados['usuario']), 
 				trim(MD5($dados['senha'])), 
 				$dados['dataNascimento'], 
