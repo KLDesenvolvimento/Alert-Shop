@@ -1,3 +1,7 @@
+/**********************************
+            VALIDA CPF
+**********************************/
+
 function validarCPF(cpf) {  
     cpf = cpf.replace(/[^\d]+/g,'');    
     if(cpf == '') return false; 
@@ -34,74 +38,105 @@ function validarCPF(cpf) {
         return false;       
     return true;
 }
-//fim valida cpf
 
-//inicio pegar cep
+    /*************************************
+        PEGA ENDEREÇO A PARTIR DO CEP
+    *************************************/
 
-function buscarCep() {
+function buscarCep() 
+{
 
-                // Limpa valores do formulário de cep.
-                $("#rua").val("");
-                $("#bairro").val("");
-                $("#cidade").val("");
-                $("#uf").val("");
-                // $("#ibge").val("");
-            }
-            
-            //Quando o campo cep perde o foco.
-            $("#cep").blur(function() {
+    // Limpa valores do formulário de cep.
+    $("#rua").val("");
+    $("#bairro").val("");
+    $("#cidade").val("");
+    $("#uf").val("");
+    // $("#ibge").val("");
+}
 
-                //Nova variável "cep" somente com dígitos.
-                var cep = $(this).val().replace(/\D/g, '');
+//Quando o campo cep perde o foco.
+$("#cep").blur(function() {
 
-                //Verifica se campo cep possui valor informado.
-                if (cep != "") {
+    //Nova variável "cep" somente com dígitos.
+    var cep = $(this).val().replace(/\D/g, '');
 
-                    //Expressão regular para validar o CEP.
-                    var validacep = /^[0-9]{8}$/;
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
 
-                    //Valida o formato do CEP.
-                    if(validacep.test(cep)) {
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
 
-                        //Preenche os campos com "..." enquanto consulta webservice.
-                        $("#rua").val("Carregando...");
-                        $("#bairro").val("Carregando...");
-                        $("#cidade").val("Carregando...");
-                        $("#uf").val("Carregando...");
-                        // $("#ibge").val("Carregando...");
+        //Valida o formato do CEP.
+        if(validacep.test(cep)) {
 
-                        //Consulta o webservice viacep.com.br/
-                        $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+            //Preenche os campos com "..." enquanto consulta webservice.
+            $("#rua").val("Carregando...");
+            $("#bairro").val("Carregando...");
+            $("#cidade").val("Carregando...");
+            $("#uf").val("Carregando...");
+            // $("#ibge").val("Carregando...");
 
-                            if (!("erro" in dados)) {
-                                //Atualiza os campos com os valores da consulta.
-                                $("#rua").val(dados.logradouro);
-                                $("#bairro").val(dados.bairro);
-                                $("#cidade").val(dados.localidade);
-                                $("#uf").val(dados.uf);
-                                // $("#ibge").val(dados.ibge);
-                            } //end if.
-                            else {
-                                //CEP pesquisado não foi encontrado.
-                                // limpa_formulário_cep();
+            //Consulta o webservice viacep.com.br/
+            $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
 
-                                var msg = "CEP não encontrado.";
-
-                                return msg;
-                            }
-                        });
-                    } //end if.
-                    else {
-                        //cep é inválido.
-                        // limpa_formulário_cep();
-
-                        var msg = "Formato de CEP inválido.";
-
-                        return msg;
-                    }
+                if (!("erro" in dados)) {
+                    //Atualiza os campos com os valores da consulta.
+                    $("#rua").val(dados.logradouro);
+                    $("#bairro").val(dados.bairro);
+                    $("#cidade").val(dados.localidade);
+                    $("#uf").val(dados.uf);
+                    // $("#ibge").val(dados.ibge);
                 } //end if.
                 else {
-                    //cep sem valor, limpa formulário.
+                    //CEP pesquisado não foi encontrado.
                     // limpa_formulário_cep();
+
+                    var msg = "CEP não encontrado.";
+
+                    return msg;
                 }
             });
+        } //end if.
+        else {
+            //cep é inválido.
+            // limpa_formulário_cep();
+
+            var msg = "Formato de CEP inválido.";
+
+            return msg;
+        }
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        // limpa_formulário_cep();
+    }
+});
+
+/*******************************
+            VALIDA EMAIL
+*******************************/
+
+function validaEmail(email)
+{
+
+    usuario = email.substring(0, email.indexOf("@"));
+    dominio = email.substring(email.indexOf("@")+ 1, email.length);
+
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) && 
+        (usuario.search("@")==-1) && 
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) && 
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&      
+        (dominio.indexOf(".") >=1)&& 
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        document.getElementById("email").innerHTML="E-mail válido";
+    }
+    else
+    {
+        document.getElementById("email").innerHTML="<font color='red'>E-mail inválido </font>";
+        return false;
+    }
+
+}

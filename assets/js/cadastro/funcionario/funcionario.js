@@ -5,6 +5,10 @@ $(document).ready(function(){
 	var cep = $("#cep");
 	var email = $("#email");
 
+	/*************************************
+		PEGA ENDEREÇO A PARTIR DO CEP
+	*************************************/
+
 	$("#cep").on('blur', function(){
 
 		var cep = $("#cep").val
@@ -22,70 +26,9 @@ $(document).ready(function(){
 
 	});
 
-	// function pegarCep() {
- //                // Limpa valores do formulário de cep.
- //                $("#rua").val("");
- //                $("#bairro").val("");
- //                $("#cidade").val("");
- //                $("#uf").val("");
- //                // $("#ibge").val("");
- //            }
-            
- //            //Quando o campo cep perde o foco.
- //            $("#cep").blur(function() {
-
- //                //Nova variável "cep" somente com dígitos.
- //                var cep = $(this).val().replace(/\D/g, '');
-
- //                //Verifica se campo cep possui valor informado.
- //                if (cep != "") {
-
- //                    //Expressão regular para validar o CEP.
- //                    var validacep = /^[0-9]{8}$/;
-
- //                    //Valida o formato do CEP.
- //                    if(validacep.test(cep)) {
-
- //                        //Preenche os campos com "..." enquanto consulta webservice.
- //                        $("#rua").val("Carregando...");
- //                        $("#bairro").val("Carregando...");
- //                        $("#cidade").val("Carregando...");
- //                        $("#uf").val("Carregando...");
- //                        // $("#ibge").val("Carregando...");
-
- //                        //Consulta o webservice viacep.com.br/
- //                        $.getJSON("//viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
-
- //                            if (!("erro" in dados)) {
- //                                //Atualiza os campos com os valores da consulta.
- //                                $("#rua").val(dados.logradouro).attr('disabled');
- //                                $("#bairro").val(dados.bairro).attr('disabled');
- //                                $("#cidade").val(dados.localidade).attr('disabled');
- //                                $("#uf").val(dados.uf).attr('disabled');
- //                                // $("#ibge").val(dados.ibge).attr('readonly', 'readonly');
- //                            } //end if.
- //                            else {
- //                                //CEP pesquisado não foi encontrado.
- //                                // limpa_formulário_cep();
- //                                alert("CEP não encontrado.");
- //                            }
- //                        });
- //                    } //end if.
- //                    else {
- //                        //cep é inválido.
- //                        // limpa_formulário_cep();
- //                        alert("Formato de CEP inválido.");
- //                    }
- //                } //end if.
- //                else {
- //                    //cep sem valor, limpa formulário.
- //                    // limpa_formulário_cep();
- //                }
- //            });
-
-            //fim valida cep
-
-	//inicio valida cpf
+	/*******************************
+			VALIDA CPF
+	*******************************/
 
 	cpf.on('blur', function(){
 
@@ -103,6 +46,10 @@ $(document).ready(function(){
 		}
 
 	});
+
+	/***************************************************
+				REMOVE CARACTERE ESPECIAL
+	***************************************************/
 
 	email.on('keypress', function() {
 
@@ -144,145 +91,96 @@ $(document).ready(function(){
 
 	});
 
-	function removeCaractere($dado)
-	{
+	/************************************
+				VALIDA EMAIL
+	************************************/
 
-		var dado = String.fromCharCode(e.which);
+	$("#email").on('blur', function(){
 
-		alert($dado);
+		email = $("#email").val();
 
-		if("1234567890qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM@.-_".indexOf($dado) > 0)
+		validaEmail(email);
+
+		if(!validaEmail(email))
 		{
 
-			return false;
+			alert("E-mail invalido");
+			$("#email").val("");
 
 		}
 
-	}
-
-	//fim da função de buscar cep
-
-	//validar email
-
-	email.on('blur',function(){
-
-		// function validacaoEmail() {
-
-			usuario = email.val().substring(0, email.val().indexOf("@"));
-			dominio = email.val().substring(email.val().indexOf("@")+ 1, email.val().length);
-
-			if ((usuario.length >=1) &&
-			    (dominio.length >=3) && 
-			    (usuario.search("@")==-1) && 
-			    (dominio.search("@")==-1) &&
-			    (usuario.search(" ")==-1) && 
-			    (dominio.search(" ")==-1) &&
-			    (dominio.search(".")!=-1) &&      
-			    (dominio.indexOf(".") >=1)&& 
-			    (dominio.lastIndexOf(".") < dominio.length - 1)) {
-				document.getElementById("email").innerHTML="E-mail válido";
-				// alert("E-mail valido");
-			}
-			else
-			{
-				document.getElementById("email").innerHTML="<font color='red'>E-mail inválido </font>";
-				alert("E-mail invalido");
-				email.val("");
-			}
-		// }
-
 	});
 
-	//fim do validar email
+	/**********************************
+					SUBMIT
+	**********************************/
 
-		$("#salvar").on('click', function(){
+	$("#salvar").on('click', function(){
 
-			var nome = $("#nome").val();
-			var cpf = $("#cpf").val();
-			var dataNascimento = $("#dataNascimento").val();
-			var sexo = $("#sexo").val();
-			var tipoTelefone = $("#tipoTelefone").val();
-			var telefone = $("#telefone").val();
-			var email = $("#email").val();
-			var cep = $("#cep").val();
-			var rua = $("#rua").val();
-			var bairro = $("#bairro").val();
-			var cidade = $("#cidade").val();
-			var numCasa = $("#numCasa").val();
-			var uf = $("#uf").val();
-			var complemento = $("#complemento").val();
-			var usuario = $("#usuario").val();
-			var senha = $("#senha").val();
-			var setor = $("#setor").val();
-			var funcao = $("#funcao").val();
-			var btnSalva = $("#salvar");
-			var formInserir = $("#inserirFuncionario");
+		var nome = $("#nome").val();
+		var cpf = $("#cpf").val();
+		var dataNascimento = $("#dataNascimento").val();
+		var sexo = $("#sexo").val();
+		var tipoTelefone = $("#tipoTelefone").val();
+		var telefone = $("#telefone").val();
+		var email = $("#email").val();
+		var cep = $("#cep").val();
+		var rua = $("#rua").val();
+		var bairro = $("#bairro").val();
+		var cidade = $("#cidade").val();
+		var numCasa = $("#numCasa").val();
+		var uf = $("#uf").val();
+		var complemento = $("#complemento").val();
+		var usuario = $("#usuario").val();
+		var senha = $("#senha").val();
+		var setor = $("#setor").val();
+		var funcao = $("#funcao").val();
+		var btnSalva = $("#salvar");
+		var formInserir = $("#inserirFuncionario");
 
-			if(nome != "" && cpf != "" && usuario != "" && senha != "")
-			{
+		if(nome != "" && cpf != "" && usuario != "" && senha != "")
+		{
 
-				$("#rua", "#bairro", "#cidade", "#uf").removeAttr('disabled', 'disabled');
+			$("#rua", "#bairro", "#cidade", "#uf").removeAttr('disabled', 'disabled');
 
-				formInserir.submit();
+			formInserir.submit();
 
-			}
+		}
 
-			if(nome == "")
-			{
+		if(nome == "")
+		{
 
-				alert("Campo nome não pode estar vazio.");
-				// return false;
+			alert("Campo nome não pode estar vazio.");
+			// return false;
 
-			}
+		}
 
-			if(cpf == "")
-			{
+		if(cpf == "")
+		{
 
-				alert("Campo CPF não pode estar vazio.");
-				// return false;
-				
-			}
-
-			if(usuario == "")
-			{
-
-				alert("Campo usuario não pode estar vazio.");
-				// return false;
-				
-			}
-
-			if(senha == "")
-			{
-
-				alert("Campo senha não pode estar vazio.");
-				// return false;
-				
-			}
-
-			return false;
+			alert("Campo CPF não pode estar vazio.");
+			// return false;
 			
-		});
+		}
 
-	// function vazio(valor)
-	// {
+		if(usuario == "")
+		{
 
-	// 	alert(valor);
-	// 		return false;
+			alert("Campo usuario não pode estar vazio.");
+			// return false;
+			
+		}
 
-	// 	if(valor == "" || valor == '' || valor == null)
-	// 	{
+		if(senha == "")
+		{
 
-	// 		return false;
+			alert("Campo senha não pode estar vazio.");
+			// return false;
+			
+		}
 
-	// 	}
-	// 	else
-	// 	{
-
-	// 		return true;
-
-	// 	}
-
-	// }
-
+		return false;
+		
+	});
 
 });
