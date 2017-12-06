@@ -183,4 +183,10 @@ $(document).ready(function(){
 		
 	});
 
+	//CONSULTA FUNCIONARIO
+
+	$(document).ready(function(){
+    $('#myTable').DataTable();
+});
+
 });

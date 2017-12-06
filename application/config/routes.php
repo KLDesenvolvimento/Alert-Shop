@@ -61,3 +61,4 @@ $route['home'] = 'Login/home';
 $route['cadastrar-funcionario'] = 'cadastro/funcionario/Funcionario/funcionario';
 $route['inserir-funcionario'] = 'cadastro/funcionario/Funcionario/inserirFuncionario';
 $route['mensagem'] = 'cadastro/funcionario/Funcionario';
+$route['consultar-funcionario'] = 'consulta/funcionario/funcionario';

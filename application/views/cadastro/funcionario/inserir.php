@@ -4,7 +4,7 @@
 
 			<ol class="breadcrumb">
 				<li><a href="<?php echo base_url('home'); ?>">Início</a></li>
-				<li class="active">Cadastrar Funcionário</li>
+				<li class="active">Cadastro Funcionário</li>
 			</ol>
 
 			<div class="panel panel-default">
