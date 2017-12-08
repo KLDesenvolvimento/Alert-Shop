@@ -38,12 +38,26 @@
 
 			}
 
+		}
 
-			// $include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
-			// $data['includeJs'] = $include;
+		public function editarFuncionario()
+		{
 
-			// $this->load->view('cabecalho', $data);
-			// $this->load->view('cadastro/funcionario/inserir', $retorno);
+			$data['funcionario'] = $this->input->post();
+
+			var_dump($data);
+			die();
+
+			if($data != "")
+			{
+
+				$include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
+				$data['includeJs'] = $include;
+
+				$this->load->view('cabecalho', $data);
+				$this->load->view('cadastro/funcionario/editar', $data);
+
+			}
 
 		}
 

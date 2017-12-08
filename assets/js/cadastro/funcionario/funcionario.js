@@ -189,4 +189,14 @@ $(document).ready(function(){
     $('#myTable').DataTable();
 });
 
+	/*******************************
+			EDITAR FUNCIONARIO
+	*******************************/
+
+	$("#btnEditar").on('click', function(){
+
+		$("#formAlterarFuncionario").submit();
+
+	});
+
 });

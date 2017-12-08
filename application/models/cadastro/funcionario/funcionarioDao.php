@@ -176,6 +176,43 @@
 
 		}
 
-	}
+		public function getFuncionario()
+		{
+
+			$sql = "SELECT 
+					f.nomeFuncionario, 
+					f.cpfFuncionario, 
+					f.usuario, 
+					f.dataNascimento, 
+					funcao.nomeFuncao, 
+					setor.nomeSetor 
+					FROM 
+					funcionario AS f 
+					INNER JOIN 
+					funcao 
+					ON 
+					f.fkFuncao = funcao.idFuncao 
+					INNER JOIN 
+					setor 
+					ON f.fkSetor = setor.idSetor";
+
+			$query = $this->db->query($sql);
+
+			if($query->num_rows() > 0)
+			{
+
+				return $query->result();
+
+			}
+			else
+			{
+
+				return false;
+
+			}
+
+		}
+
+	}//fim da class
 
 ?>

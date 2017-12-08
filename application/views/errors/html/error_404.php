@@ -80,7 +80,7 @@ p {
 <body>
 	<div id="container">
 		<h1 style="text-align:center;">404 Página não encontrada</h1>
-		<img src="http://192.168.0.148/alert_shop/img/homer.gif" style='text-align:center;'>
+		<img src="http://localhost/alert_shop/img/homer.gif" style='text-align:center;'>
 		<h4 id="txt1">D'oh!</h4>
 		<h4 id="txt2">404</h4>
 	</div>

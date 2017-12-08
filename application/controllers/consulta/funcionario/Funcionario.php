@@ -15,11 +15,26 @@
 		public function index()
 		{
 
-			$include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
-			$data['includeJs'] = $include;
+			$data['funcionario'] = $this->funcionarioDao->getFuncionario();
 
-			$this->load->view('cabecalho', $data);
-			$this->load->view('consulta/funcionario/funcionario');
+			if($data)
+			{
+
+				$include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
+				$data['includeJs'] = $include;
+
+				$this->load->view('cabecalho', $data);
+				$this->load->view('consulta/funcionario/funcionario', $data);
+
+			}
+			else
+			{
+
+				return false;
+
+			}
+
+			
 
 		}
 
