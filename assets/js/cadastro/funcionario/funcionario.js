@@ -186,17 +186,17 @@ $(document).ready(function(){
 	//CONSULTA FUNCIONARIO
 
 	$(document).ready(function(){
-    $('#myTable').DataTable();
-});
+    	$('#tableFuncionario').DataTable();
+	});
 
 	/*******************************
 			EDITAR FUNCIONARIO
 	*******************************/
 
-	$("#btnEditar").on('click', function(){
+	// $("#btnEditar").on('click', function(){
 
-		$("#formAlterarFuncionario").submit();
+	// 	$("#formAlterarFuncionario").submit();
 
-	});
+	// });
 
 });

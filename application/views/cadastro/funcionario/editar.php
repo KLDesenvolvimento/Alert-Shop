@@ -1,9 +1,6 @@
 <?php
 
-	var_dump($funcionario);
-	die();
-
-	$nome = $funcionario->nome;
+	$funcionario = $funcionario[0];
 
 ?>
 
@@ -36,7 +33,7 @@
 							<div class="form-group">
 
 								<label>Nome Completo</label>
-								<input type="text" name="nome" id="nome" class="form-control" placeholder="Nome completo">
+								<input type="text" name="nome" id="nome" class="form-control" placeholder="Nome completo" value="<?php echo $funcionario->nomeFuncionario ?>">
 
 							</div><!--form-group-->
 						</div><!--col-->
@@ -45,7 +42,7 @@
 							<div class="form-group">
 
 								<label>CPF</label>
-								<input type="tel" name="cpf" id="cpf" class="form-control">
+								<input type="tel" name="cpf" id="cpf" class="form-control" value="<?php echo $funcionario->cpfFuncionario ?>">
 
 							</div>
 						</div>
@@ -54,7 +51,7 @@
 							<div class="form-group">
 								
 								<label>Data de Nascimento</label>
-								<input type="date" name="dataNascimento" id="dataNascimento" class="form-control">
+								<input type="date" name="dataNascimento" id="dataNascimento" class="form-control" value="<?php echo $funcionario->dataNascimento ?>">
 
 							</div>
 						</div>
@@ -85,14 +82,14 @@
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>Telefone</label>
-								<input type="tel" name="telefone" id="telefone" class="form-control">
+								<input type="tel" name="telefone" id="telefone" class="form-control" value="<?php echo $funcionario->numeroTelefone ?>">
 							</div>
 						</div>
 
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 							<div class="form-group">
 								<label>E-mail</label>
-								<input type="email" name="email" id="email" class="form-control" placeholder="Ex.: kldesenvolvimento@gmail.com">
+								<input type="email" name="email" id="email" class="form-control" placeholder="Ex.: kldesenvolvimento@gmail.com" value="<?php echo $funcionario->emailFuncionario ?>">
 							</div>
 						</div>
 
@@ -108,35 +105,35 @@
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>CEP</label>
-								<input type="tel" name="cep" id="cep" class="form-control">
+								<input type="tel" name="cep" id="cep" class="form-control" value="<?php echo $funcionario->cep ?>">
 							</div>
 						</div>
 
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-4">
 							<div class="form-group">
 								<label>Rua</label>
-								<input type="text" name="rua" id="rua" class="form-control" placeholder="Rua, Logradouro">
+								<input type="text" name="rua" id="rua" class="form-control" placeholder="Rua, Logradouro" value="<?php echo $funcionario->rua ?>">
 							</div>
 						</div>
 
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>Número</label>
-								<input type="tel" name="numCasa" id="numCasa" class="form-control" placeholder="Nº da Casa">
+								<input type="tel" name="numCasa" id="numCasa" class="form-control" placeholder="Nº da Casa" value="<?php echo $funcionario->numeroCasa ?>">
 							</div>
 						</div>
 
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>Bairro</label>
-								<input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro">
+								<input type="text" name="bairro" id="bairro" class="form-control" placeholder="Bairro" value="<?php echo $funcionario->bairro ?>">
 							</div>
 						</div>
 
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-2">
 							<div class="form-group">
 								<label>Cidade</label>
-								<input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade">
+								<input type="text" name="cidade" id="cidade" class="form-control" placeholder="Cidade" value="<?php echo $funcionario->cidade ?>">
 							</div>
 						</div>
 
@@ -181,7 +178,7 @@
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-6">
 							<div class="form-group">
 								<label>Complemento</label>
-								<textarea name="complemento" id="complemento" class="form-control" placeholder="Ex.: Pontos de referência, Cor da casa, Andar e número do Apto, Etc."></textarea>
+								<textarea name="complemento" id="complemento" class="form-control" placeholder="Ex.: Pontos de referência, Cor da casa, Andar e número do Apto, Etc."></textarea><?php echo $funcionario->complemento ?></textarea>
 							</div>
 						</div>
 					</div>
@@ -198,14 +195,14 @@
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3">
 							<div class="form-group">
 								<label>Usuario</label>
-								<input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nome de usuário">
+								<input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nome de usuário" value="<?php echo $funcionario->usuario ?>">
 							</div>
 						</div>
 
 						<div class="col-xs-12 col-xs-sm-12 col-md-12 col-lg-3">
 							<div class="form-group">
 								<label>Senha</label>
-								<input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+								<input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" value="<?php echo $funcionario->senha ?>">
 							</div>
 						</div>
 

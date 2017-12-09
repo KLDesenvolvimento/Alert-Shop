@@ -213,6 +213,75 @@
 
 		}
 
+		public function alterarFuncionario($dados)
+		{
+
+			// var_dump($dados);
+			// die();
+
+			if($dados != "")
+			{
+
+				$sql = "SELECT 
+					f.nomeFuncionario, 
+					f.cpfFuncionario, 
+					f.usuario, 
+					f.senha,
+					f.emailFuncionario, 
+					f.dataNascimento, 
+					f.sexoFuncionario, 
+					f.dataNascimento, 
+					funcao.nomeFuncao, 
+					setor.nomeSetor, 
+					ef.cep, 
+					ef.rua, 
+					ef.bairro, 
+					ef.cidade, 
+					ef.complemento, 
+					ef.uf, 
+					ef.numeroCasa, 
+					tf.tipoTelefone, 
+					tf.numeroTelefone  
+					FROM 
+					funcionario AS f 
+					INNER JOIN 
+					funcao 
+					ON 
+					f.fkFuncao = funcao.idFuncao 
+					AND f.cpfFuncionario = ?
+					INNER JOIN 
+					setor 
+					ON f.fkSetor = setor.idSetor 
+					INNER JOIN enderecoFuncionario AS ef
+					ON ef.fkFuncionario = f.idFuncionario 
+					INNER JOIN telefoneFuncionario AS tf 
+					ON tf.fkFuncionario = f.idFuncionario";
+
+				$query = $this->db->query($sql, array($dados['btnEditar']));
+
+				// echo "<pre>";
+				// var_dump($this->db);
+				// die();
+
+				if($query->num_rows() > 0)
+				{
+
+					return $query->result();
+
+				}
+				else
+				{
+
+					return false;
+
+				}
+
+			}
+
+			return false;
+
+		}
+
 	}//fim da class
 
 ?>

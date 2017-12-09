@@ -45,17 +45,21 @@
 
 			$data['funcionario'] = $this->input->post();
 
-			var_dump($data);
-			die();
+			$retorno['funcao'] = $this->funcionarioDao->getFuncao();
+			$retorno['setor'] = $this->funcionarioDao->getSetor();
+			$retorno['funcionario'] = $this->funcionarioDao->alterarFuncionario($data['funcionario']);
 
-			if($data != "")
+			// var_dump($retorno['funcionario']);
+			// die();
+
+			if($retorno)
 			{
 
 				$include = '<script type="text/javascript" src="'.base_url("assets/js/cadastro/funcionario/funcionario.js").'"></script>';
 				$data['includeJs'] = $include;
 
 				$this->load->view('cabecalho', $data);
-				$this->load->view('cadastro/funcionario/editar', $data);
+				$this->load->view('cadastro/funcionario/editar', $retorno);
 
 			}
 

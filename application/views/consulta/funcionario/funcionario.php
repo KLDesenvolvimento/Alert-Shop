@@ -15,7 +15,7 @@
 
 					<form id="formAlterarFuncionario" method="POST" action="<?php echo base_url('editar-funcionario'); ?>">
 					
-						<table id="tableFuncionario" name="tableFuncionario" class="table table-striped table-bordered table-condensed">
+						<table id="tableFuncionario" name="tableFuncionario" class="hover stripe cell-border">
 							<!-- <caption>Funcionários</caption> -->
 							<thead>
 								<tr>
@@ -40,8 +40,8 @@
 									<td style="text-align: center;"><?php echo $row->dataNascimento ?></td>
 									<td style="text-align: center;"><?php echo $row->nomeSetor ?></td>
 									<td style="text-align: center;"><?php echo $row->nomeFuncao ?></td>
-									<td style="text-align: center;"><button type="button" class="btn btn-primary" id="btnEditar" name="btnEditar" value="<?php echo $row->cpfFuncionario ?>">Editar</button></td>
-									<td style="text-align: center;"><button type="button" class="btn btn-primary" id="btnRemover" name="btnRemover" value="<?php echo $row->cpfFuncionario ?>">Remover</button></td>
+									<td style="text-align: center;"><button type="submit" class="btn btn-primary" id="btnEditar" name="btnEditar" value="<?php echo $row->cpfFuncionario ?>">Editar</button></td>
+									<td style="text-align: center;"><button type="submit" class="btn btn-primary" id="btnRemover" name="btnRemover" value="<?php echo $row->cpfFuncionario ?>">Remover</button></td>
 								</tr>
 
 								<?php } ?>
