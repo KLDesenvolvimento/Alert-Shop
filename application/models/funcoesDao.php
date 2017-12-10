@@ -15,6 +15,9 @@
 		public function getIdFuncionario($cpf)
 		{
 
+			var_dump($cpf);
+			die();
+
 			$sql = "SELECT 
 			idFuncionario 
 			FROM 

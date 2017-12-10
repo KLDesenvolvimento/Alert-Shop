@@ -282,6 +282,106 @@
 
 		}
 
+		public function updateFuncionario($dados)
+		{
+
+			// echo "<pre>";
+			// var_dump($dados);
+			// die();
+
+			if($dados != '')
+			{
+
+				$sqlFunc = " UPDATE 
+							funcionario 
+							SET 
+							nomeFuncionario = ?, 
+							cpfFuncionario = ?, 
+							usuario = ?, 
+							senha = ?, 
+							dataNascimento = ?, 
+							fkSetor = ?, 
+							fkFuncao = ?, 
+							sexoFuncionario = ?, 
+							emailFuncionario = ? 
+							WHERE 
+							cpfFuncionario = ?";
+
+				$queryFunc = $this->db->query($sqlFunc, array(
+					$dados['nome'], 
+					$dados['cpf'], 
+					$dados['usuario'], 
+					$dados['senha'], 
+					$dados['dataNascimento'], 
+					$dados['setor'], 
+					$dados['funcao'], 
+					$dados['sexo'], 
+					$dados['email'], 
+					$dados['cpfAntigo']));
+
+				$sqlTel = " UPDATE 
+							telefoneFuncionario 
+							SET 
+							tipoTelefone =?, 
+							numeroTelefone = ? 
+							WHERE 
+							numeroTelefone = ?";
+
+				$queryTel = $this->db->query($sqlTel, array(
+					$dados['tipoTelefone'], 
+					$dados['telefone'], 
+					$dados['telefoneAntigo']));
+
+				$sqlEnd = " UPDATE 
+							enderecoFuncionario 
+							SET 
+							cep = ?, 
+							rua = ?, 
+							bairro = ?, 
+							cidade = ?, 
+							uf = ?, 
+							numeroCasa = ?, 
+							complemento = ? 
+							WHERE 
+							cep = ?";
+
+				$queryEnd = $this->db->query($sqlEnd, array(
+					$dados['cep'], 
+					$dados['rua'], 
+					$dados['bairro'], 
+					$dados['cidade'], 
+					$dados['uf'], 
+					$dados['numCasa'], 
+					$dados['complemento'], 
+					$dados['cepAntigo']));
+
+				// echo "<pre>";
+				// var_dump($query);
+				// die();
+
+				if($queryFunc && $queryTel && $queryEnd)
+				{
+
+					return true;
+
+				}
+				else
+				{
+
+					return false;
+
+				}
+
+			}
+			else
+			{
+
+				return false;
+
+			}
+
+		}
+
 	}//fim da class
 
 ?>

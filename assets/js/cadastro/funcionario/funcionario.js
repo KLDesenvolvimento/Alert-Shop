@@ -186,7 +186,9 @@ $(document).ready(function(){
 	//CONSULTA FUNCIONARIO
 
 	$(document).ready(function(){
+    
     	$('#tableFuncionario').DataTable();
+	
 	});
 
 	/*******************************
@@ -198,5 +200,11 @@ $(document).ready(function(){
 	// 	$("#formAlterarFuncionario").submit();
 
 	// });
+
+	$("#salvarAlteracao").on('click', function(){
+
+		$("#alterarFuncionario").submit();
+
+	});
 
 });

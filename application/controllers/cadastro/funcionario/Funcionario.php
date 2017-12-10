@@ -45,6 +45,10 @@
 
 			$data['funcionario'] = $this->input->post();
 
+			// echo "<pre>";
+			// var_dump($data);
+			// die();
+
 			$retorno['funcao'] = $this->funcionarioDao->getFuncao();
 			$retorno['setor'] = $this->funcionarioDao->getSetor();
 			$retorno['funcionario'] = $this->funcionarioDao->alterarFuncionario($data['funcionario']);
@@ -90,6 +94,31 @@
 				$msg['resposta'] = "Falha ao cadastrar funcionário.";
 				$this->load->view('cabecalho');
 				$this->load->view('cadastro/funcionario/mensagem', $msg);
+
+			}
+
+		}
+
+		public function updateFuncionario()
+		{
+
+			$data['funcionario'] = $this->input->post();
+
+			$retorno = $this->funcionarioDao->updateFuncionario($data['funcionario']);
+
+			if($retorno)
+			{
+
+				$msg['resposta'] = "Funcionário alterado com sucesso.";
+
+				$this->load->view('cabecalho');
+				$this->load->view('cadastro/funcionario/mensagem', $msg);
+
+			}
+			else
+			{
+
+				return false;
 
 			}
 

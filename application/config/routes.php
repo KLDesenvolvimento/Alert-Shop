@@ -63,3 +63,4 @@ $route['inserir-funcionario'] = 'cadastro/funcionario/Funcionario/inserirFuncion
 $route['mensagem'] = 'cadastro/funcionario/Funcionario';
 $route['consultar-funcionario'] = 'consulta/funcionario/funcionario';
 $route['editar-funcionario'] = 'cadastro/funcionario/Funcionario/editarFuncionario';
+$route['alterar-funcionario'] = 'cadastro/funcionario/Funcionario/updateFuncionario';
