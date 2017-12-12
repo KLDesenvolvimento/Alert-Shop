@@ -11,18 +11,11 @@ $(document).ready(function(){
 
 	$("#cep").on('blur', function(){
 
-		var cep = $("#cep").val
+		var cep = $("#cep").val();
+
+		// alert(cep);
 
 		buscarCep(cep);
-
-		console.log(cep);
-
-		if(!buscarCep(cep))
-		{
-
-			alert('CEP inválido');
-
-		}
 
 	});
 
@@ -36,7 +29,7 @@ $(document).ready(function(){
 
 		validarCPF(cpf);
 
-		// console.log(validarCPF(cpf));
+		console.log(validarCPF(cpf));
 
 		if(!validarCPF(cpf))
 		{
@@ -69,7 +62,7 @@ $(document).ready(function(){
 	});
 
 	cpf.mask("000.000.000-00", {placeholder:"___.___.___-__"});
-	telefone.mask("(00)0000-0000", {placeholder:"(__)____-____"});
+	telefone.mask("(00)00000-0000", {placeholder:"(__)____-____"});
 	cep.mask("00.000-000", {placeholder:"__.___-___"});
 
 	telefone.on('focus', function(){
@@ -151,7 +144,7 @@ $(document).ready(function(){
 		{
 
 			alert("Campo nome não pode estar vazio.");
-			// return false;
+			return false;
 
 		}
 
@@ -159,7 +152,7 @@ $(document).ready(function(){
 		{
 
 			alert("Campo CPF não pode estar vazio.");
-			// return false;
+			return false;
 			
 		}
 
@@ -167,7 +160,7 @@ $(document).ready(function(){
 		{
 
 			alert("Campo usuario não pode estar vazio.");
-			// return false;
+			return false;
 			
 		}
 
@@ -175,7 +168,75 @@ $(document).ready(function(){
 		{
 
 			alert("Campo senha não pode estar vazio.");
-			// return false;
+			return false;
+			
+		}
+
+		return false;
+		
+	});
+
+	$("#salvarAlteracao").on('click', function(){
+
+		var nome = $("#nome").val();
+		var cpf = $("#cpf").val();
+		var dataNascimento = $("#dataNascimento").val();
+		var sexo = $("#sexo").val();
+		var tipoTelefone = $("#tipoTelefone").val();
+		var telefone = $("#telefone").val();
+		var email = $("#email").val();
+		var cep = $("#cep").val();
+		var rua = $("#rua").val();
+		var bairro = $("#bairro").val();
+		var cidade = $("#cidade").val();
+		var numCasa = $("#numCasa").val();
+		var uf = $("#uf").val();
+		var complemento = $("#complemento").val();
+		var usuario = $("#usuario").val();
+		var senha = $("#senha").val();
+		var setor = $("#setor").val();
+		var funcao = $("#funcao").val();
+		var salvarAlteracao = $("#salvarAlteracao");
+		var formAlterar = $("#alterarFuncionario");
+
+		if(nome != "" && cpf != "" && usuario != "" && senha != "")
+		{
+
+			$("#rua", "#bairro", "#cidade", "#uf").removeAttr('disabled', 'disabled');
+
+			formAlterar.submit();
+
+		}
+
+		if(nome == "")
+		{
+
+			alert("Campo nome não pode estar vazio.");
+			return false;
+
+		}
+
+		if(cpf == "")
+		{
+
+			alert("Campo CPF não pode estar vazio.");
+			return false;
+			
+		}
+
+		if(usuario == "")
+		{
+
+			alert("Campo usuario não pode estar vazio.");
+			return false;
+			
+		}
+
+		if(senha == "")
+		{
+
+			alert("Campo senha não pode estar vazio.");
+			return false;
 			
 		}
 

@@ -3,6 +3,7 @@
 **********************************/
 
 function validarCPF(cpf) {  
+
     cpf = cpf.replace(/[^\d]+/g,'');    
     if(cpf == '') return false; 
     // Elimina CPFs invalidos conhecidos    
@@ -43,7 +44,7 @@ function validarCPF(cpf) {
         PEGA ENDEREÇO A PARTIR DO CEP
     *************************************/
 
-function buscarCep() 
+function buscarCep(cep) 
 {
 
     // Limpa valores do formulário de cep.
@@ -52,13 +53,9 @@ function buscarCep()
     $("#cidade").val("");
     $("#uf").val("");
     // $("#ibge").val("");
-}
-
-//Quando o campo cep perde o foco.
-$("#cep").blur(function() {
 
     //Nova variável "cep" somente com dígitos.
-    var cep = $(this).val().replace(/\D/g, '');
+    cep = cep.replace(/\D/g, '');
 
     //Verifica se campo cep possui valor informado.
     if (cep != "") {
@@ -87,30 +84,51 @@ $("#cep").blur(function() {
                     $("#uf").val(dados.uf);
                     // $("#ibge").val(dados.ibge);
                 } //end if.
-                else {
+                else 
+                {
                     //CEP pesquisado não foi encontrado.
                     // limpa_formulário_cep();
 
                     var msg = "CEP não encontrado.";
 
-                    return msg;
+                    $("#alerta").modal();
+                    $("#mensagem").html(msg);
+                    $("#rua").val("");
+                    $("#bairro").val("");
+                    $("#cidade").val("");
+                    $("#uf").val("");
+
+                    return false;
+
                 }
             });
         } //end if.
-        else {
+        else 
+        {
             //cep é inválido.
             // limpa_formulário_cep();
 
             var msg = "Formato de CEP inválido.";
 
-            return msg;
+            $("#alerta").modal();
+            $("#mensagem").html(msg);
+            $("#rua").val("");
+            $("#bairro").val("");
+            $("#cidade").val("");
+            $("#uf").val("");
+
+            return false;
+
         }
     } //end if.
-    else {
+    else 
+    {
+
+        return false;
         //cep sem valor, limpa formulário.
         // limpa_formulário_cep();
     }
-});
+}
 
 /*******************************
             VALIDA EMAIL
@@ -131,11 +149,13 @@ function validaEmail(email)
         (dominio.search(".")!=-1) &&      
         (dominio.indexOf(".") >=1)&& 
         (dominio.lastIndexOf(".") < dominio.length - 1)) {
-        document.getElementById("email").innerHTML="E-mail válido";
+        // document.getElementById("email").innerHTML="E-mail válido";
+        return true;
+
     }
     else
     {
-        document.getElementById("email").innerHTML="<font color='red'>E-mail inválido </font>";
+        // document.getElementById("email").innerHTML="<font color='red'>E-mail inválido </font>";
         return false;
     }
 
