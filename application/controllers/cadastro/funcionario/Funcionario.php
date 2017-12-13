@@ -40,6 +40,37 @@
 
 		}
 
+		public function excluirFuncionario()
+		{
+
+			$data['funcionario'] = $this->input->post();
+
+			// echo "<pre>";
+			// var_dump($data);
+			// die();
+
+			$retorno['idFuncionario'] = $this->funcionarioDao->getIdFuncionario($data['funcionario']);
+
+			$retorno['funcionario'] = $this->funcionarioDao->removerFuncionario($retorno['idFuncionario']);
+
+			if($retorno)
+			{
+
+				$msg['resposta'] = "Funcionário excluído com sucesso.";
+
+				$this->load->view('cabecalho');
+				$this->load->view('cadastro/funcionario/mensagem', $msg);
+
+			}
+			else
+			{
+
+				return false;
+
+			}
+
+		}
+
 		public function editarFuncionario()
 		{
 

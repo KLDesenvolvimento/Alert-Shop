@@ -13,7 +13,7 @@
 				</div>
 				<div class="panel-body">
 
-					<form id="formAlterarFuncionario" method="POST" action="<?php echo base_url('editar-funcionario'); ?>">
+					
 					
 						<table id="tableFuncionario" name="tableFuncionario" class="hover stripe cell-border">
 							<!-- <caption>Funcionários</caption> -->
@@ -40,8 +40,13 @@
 									<td style="text-align: center;"><?php echo $row->dataNascimento ?></td>
 									<td style="text-align: center;"><?php echo $row->nomeSetor ?></td>
 									<td style="text-align: center;"><?php echo $row->nomeFuncao ?></td>
-									<td style="text-align: center;"><button type="submit" class="btn btn-primary" id="btnEditar" name="btnEditar" value="<?php echo $row->cpfFuncionario ?>">Editar</button></td>
+								<form id="formAlterarFuncionario" method="POST" action="<?php echo base_url('editar-funcionario'); ?>">
+									<input type="hidden" name="cpfFuncionario" id="cpfFuncionario" value="<?php echo $row->cpfFuncionario ?>">
+									<td style="text-align: center;"><button type="submit" onclick="submit()" class="btn btn-primary" id="btnEditar" name="btnEditar" value="<?php echo $row->cpfFuncionario ?>">Editar</button></td>
+								</form>	
+								<form id="formExcluirFuncionario" method="POST" action="<?php echo base_url('excluir-funcionario'); ?>">
 									<td style="text-align: center;"><button type="submit" class="btn btn-primary" id="btnRemover" name="btnRemover" value="<?php echo $row->cpfFuncionario ?>">Remover</button></td>
+								</form>
 								</tr>
 
 								<?php } ?>
@@ -49,7 +54,6 @@
 							</tbody>
 						</table>		
 
-					</form>		
 
 				</div>
 			</div>

@@ -1,9 +1,26 @@
 $(document).ready(function(){
 
+	//CONSULTA FUNCIONARIO
+
+	$(document).ready(function(){
+    
+    	$('#tableFuncionario').DataTable();
+	
+	});
+
+	var funcao = document.getElementById("funcao");
+	var funcao = funcao.options[funcao.selectedIndex].value;
+
+	var setor = document.getElementById("setor");
+	var setor = setor.options[setor.selectedIndex].value;
+
+	var sexo = $("#sexo").val();
 	var cpf = $('#cpf');
 	var telefone = $("#telefone");
 	var cep = $("#cep");
 	var email = $("#email");
+	var btnRemover = $("#btnRemover");
+	var btnEditar = $("#btnEditar");
 
 	/*************************************
 		PEGA ENDEREÇO A PARTIR DO CEP
@@ -34,7 +51,11 @@ $(document).ready(function(){
 		if(!validarCPF(cpf))
 		{
 
-			alert('CPF inválido.');
+			var msg = "CPF inválido.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
 
 		}
 
@@ -97,7 +118,10 @@ $(document).ready(function(){
 		if(!validaEmail(email))
 		{
 
-			alert("E-mail invalido");
+			var msg = "E-mail inválido.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			$("#email").val("");
 
 		}
@@ -131,7 +155,7 @@ $(document).ready(function(){
 		var btnSalva = $("#salvar");
 		var formInserir = $("#inserirFuncionario");
 
-		if(nome != "" && cpf != "" && usuario != "" && senha != "")
+		if(nome != "" && cpf != "" && usuario != "" && senha != "" && funcao != "" && setor != "" && sexo != "")
 		{
 
 			$("#rua", "#bairro", "#cidade", "#uf").removeAttr('disabled', 'disabled');
@@ -143,7 +167,10 @@ $(document).ready(function(){
 		if(nome == "")
 		{
 
-			alert("Campo nome não pode estar vazio.");
+			var msg = "Campo nome não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 
 		}
@@ -151,15 +178,33 @@ $(document).ready(function(){
 		if(cpf == "")
 		{
 
-			alert("Campo CPF não pode estar vazio.");
+			var msg = "Campo CPF não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 			
+		}
+
+		if(sexo == "")
+		{
+
+			var msg = "Selecione um sexo.";
+			
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
+
+
 		}
 
 		if(usuario == "")
 		{
 
-			alert("Campo usuario não pode estar vazio.");
+			var msg = "Campo usuario não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 			
 		}
@@ -167,7 +212,32 @@ $(document).ready(function(){
 		if(senha == "")
 		{
 
-			alert("Campo senha não pode estar vazio.");
+			var msg = "Campo senha não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
+			
+		}
+
+		if(funcao == "")
+		{
+
+			var msg = "Uma função deve ser selecionada";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
+			
+		}
+
+		if(setor == "")
+		{
+
+			var msg = "Um setor deve ser selecionado.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 			
 		}
@@ -199,7 +269,7 @@ $(document).ready(function(){
 		var salvarAlteracao = $("#salvarAlteracao");
 		var formAlterar = $("#alterarFuncionario");
 
-		if(nome != "" && cpf != "" && usuario != "" && senha != "")
+		if(nome != "" && cpf != "" && usuario != "" && senha != "" && funcao != "" && setor != "" && sexo != "")
 		{
 
 			$("#rua", "#bairro", "#cidade", "#uf").removeAttr('disabled', 'disabled');
@@ -211,7 +281,10 @@ $(document).ready(function(){
 		if(nome == "")
 		{
 
-			alert("Campo nome não pode estar vazio.");
+			var msg = "Campo nome não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 
 		}
@@ -219,15 +292,33 @@ $(document).ready(function(){
 		if(cpf == "")
 		{
 
-			alert("Campo CPF não pode estar vazio.");
+			var msg = "Campo CPF não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 			
+		}
+
+		if(sexo == "")
+		{
+
+			var msg = "Selecione um sexo.";
+			
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
+
+
 		}
 
 		if(usuario == "")
 		{
 
-			alert("Campo usuario não pode estar vazio.");
+			var msg = "Campo usuario não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 			
 		}
@@ -235,21 +326,38 @@ $(document).ready(function(){
 		if(senha == "")
 		{
 
-			alert("Campo senha não pode estar vazio.");
+			var msg = "Campo senha não pode estar vazio.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
+			
+		}
+
+		if(funcao == "")
+		{
+
+			var msg = "Uma função deve ser selecionada";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
+			return false;
+			
+		}
+
+		if(setor == "")
+		{
+
+			var msg = "Um setor deve ser selecionado.";
+
+			$("#alerta").modal();
+			$("#mensagem").html(msg);
 			return false;
 			
 		}
 
 		return false;
 		
-	});
-
-	//CONSULTA FUNCIONARIO
-
-	$(document).ready(function(){
-    
-    	$('#tableFuncionario').DataTable();
-	
 	});
 
 	/*******************************
@@ -265,6 +373,31 @@ $(document).ready(function(){
 	$("#salvarAlteracao").on('click', function(){
 
 		$("#alterarFuncionario").submit();
+
+	});
+
+	function submit(){
+
+		// alert(1);
+		// return false;
+
+		if(isset($("#cpfFuncionario")))
+		{
+
+			$("#formAlterarFuncionario").submit();
+
+		}
+
+	};
+
+	btnRemover.on('click', function(){
+
+		if(isset($("#cpfFuncionario")))
+		{
+
+			$("#formAlterarFuncionario").submit();
+
+		}
 
 	});
 

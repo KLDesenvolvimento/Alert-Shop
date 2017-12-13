@@ -12,6 +12,34 @@
 
 		}
 
+		public function getIdFuncionario($dados)
+		{
+
+			// var_dump($dados);
+			// die();
+
+			$sql = "SELECT 
+					idFuncionario 
+					FROM 
+					funcionario 
+					WHERE 
+					cpfFuncionario = ?";
+
+			$query = $this->db->query($sql, array($dados['btnRemover']));
+
+			if($query->num_rows() > 0)
+			{
+
+				return $query->row();
+
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+
 		public function inserirFuncionario($dados)
 		{
 
@@ -213,6 +241,57 @@
 
 		}
 
+		public function removerFuncionario($dados)
+		{
+
+			$id = $dados->idFuncionario;
+
+			// var_dump($id);
+			// die();
+
+			if($dados != '')
+			{
+
+				$sqlTel = "DELETE FROM 
+						telefoneFuncionario 
+						WHERE 
+						fkFuncionario = ?";
+
+				$queryTel = $this->db->query($sqlTel, array($id));
+
+				$sqlEnd = " DELETE FROM 
+							enderecoFuncionario 
+							WHERE 
+							fkFuncionario = ?";
+
+				$queryEnd = $this->db->query($sqlEnd, array($id));
+
+				$sqlFunc = "DELETE FROM 
+							funcionario 
+							WHERE 
+							idFuncionario = ?";
+
+				$queryFunc = $this->db->query($sqlFunc, array($id));
+
+				if($queryTel && $queryEnd && $queryFunc)
+				{
+
+					return true;
+
+				}
+				else
+				{
+
+					return false;
+
+				}
+
+			}
+
+			return false;
+
+		}
+
 		public function alterarFuncionario($dados)
 		{
 
@@ -223,39 +302,39 @@
 			{
 
 				$sql = "SELECT 
-					f.nomeFuncionario, 
-					f.cpfFuncionario, 
-					f.usuario, 
-					f.senha,
-					f.emailFuncionario, 
-					f.dataNascimento, 
-					f.sexoFuncionario, 
-					f.dataNascimento, 
-					funcao.nomeFuncao, 
-					setor.nomeSetor, 
-					ef.cep, 
-					ef.rua, 
-					ef.bairro, 
-					ef.cidade, 
-					ef.complemento, 
-					ef.uf, 
-					ef.numeroCasa, 
-					tf.tipoTelefone, 
-					tf.numeroTelefone  
-					FROM 
-					funcionario AS f 
-					INNER JOIN 
-					funcao 
-					ON 
-					f.fkFuncao = funcao.idFuncao 
-					AND f.cpfFuncionario = ?
-					INNER JOIN 
-					setor 
-					ON f.fkSetor = setor.idSetor 
-					INNER JOIN enderecoFuncionario AS ef
-					ON ef.fkFuncionario = f.idFuncionario 
-					INNER JOIN telefoneFuncionario AS tf 
-					ON tf.fkFuncionario = f.idFuncionario";
+						f.nomeFuncionario, 
+						f.cpfFuncionario, 
+						f.usuario, 
+						f.senha,
+						f.emailFuncionario, 
+						f.dataNascimento, 
+						f.sexoFuncionario, 
+						f.dataNascimento, 
+						funcao.nomeFuncao, 
+						setor.nomeSetor, 
+						ef.cep, 
+						ef.rua, 
+						ef.bairro, 
+						ef.cidade, 
+						ef.complemento, 
+						ef.uf, 
+						ef.numeroCasa, 
+						tf.tipoTelefone, 
+						tf.numeroTelefone  
+						FROM 
+						funcionario AS f 
+						left JOIN 
+						funcao 
+						ON 
+						f.fkFuncao = funcao.idFuncao 
+						INNER JOIN 
+						setor 
+						ON f.fkSetor = setor.idSetor 
+						INNER JOIN enderecoFuncionario AS ef
+						ON ef.fkFuncionario = f.idFuncionario 
+						INNER JOIN telefoneFuncionario AS tf 
+						ON tf.fkFuncionario = f.idFuncionario
+	                    WHERE f.cpfFuncionario = ?";
 
 				$query = $this->db->query($sql, array($dados['btnEditar']));
 

@@ -300,7 +300,7 @@
 			<div class="modal-body" style="text-align: center;">
 				<label id="mensagem" name="mensagem"></label>
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footer" style="text-align: center;">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
 			</div>
 		</div>
