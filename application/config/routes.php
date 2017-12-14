@@ -65,3 +65,6 @@ $route['consultar-funcionario'] = 'consulta/funcionario/funcionario';
 $route['editar-funcionario'] = 'cadastro/funcionario/Funcionario/editarFuncionario';
 $route['alterar-funcionario'] = 'cadastro/funcionario/Funcionario/updateFuncionario';
 $route['excluir-funcionario'] = 'cadastro/funcionario/Funcionario/excluirFuncionario';
+
+//produto
+$route['cadastrar-produto'] = 'cadastro/produto/Produto/produto';

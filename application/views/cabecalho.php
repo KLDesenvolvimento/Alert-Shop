@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="<?php echo base_url('img/logo_kl.jpeg'); ?>" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.mask.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/funcoes.js'); ?>"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     <?php echo isset($includeJs) ? $includeJs : '' ?>
 	<title>Alert Shop</title>
@@ -29,6 +29,7 @@
                         <li><a href="<?php echo base_url('cadastrar-funcionario'); ?>">Funcionario</a></li>
                         <li><a href="#">Cliente</a></li>
                         <li><a href="#">Fornecedor</a></li>
+                        <li><a href="<?php echo base_url('cadastrar-produto'); ?>">Produto</a></li>
                     </ul>
                 </li>
                 <li>

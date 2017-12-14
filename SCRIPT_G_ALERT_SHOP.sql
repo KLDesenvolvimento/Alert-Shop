@@ -194,24 +194,24 @@ create table produto(
 	codigoProduto varchar(20) not null,
 	descricaoProduto varchar(100) not null,
 	prcCompra float(10,2) not null,
-	prcVenda float(10,2) not null
+	prcVenda float(10,2) not null, 
+    fkMarca int,
+    fkGrupoProduto int
 );
 
 create table grupoProduto(
 	idGrupo int primary key auto_increment,
-	nomeGrupo varchar(30) not null,
-	fkProduto int not null
+	nomeGrupo varchar(30) not null unique
 );
 
 create table marca(
-	idGrupo int primary key auto_increment,
-	nomeGrupo varchar(30) not null,
-	fkProduto int not null
+	idMarca int primary key auto_increment,
+	nomeMarca varchar(30) not null unique
 );
 
 create table material(
 	idMaterial int primary key auto_increment,
-	nomeMaterial varchar(30) not null
+	nomeMaterial varchar(30) not null unique
 );
 
 create table produtoFornecedor(
@@ -255,15 +255,16 @@ alter table enderecoFornecedorFisico add constraint fk_enderecoFornecedorFisico 
 alter table telefoneFornecedorFisico add constraint fk_telefoneFornecedorFisico foreign key (fkFornecedor) references fornecedorFisico(idFornecedor);
 alter table enderecoFornecedorJuridico add constraint fk_enderecoFornecedorJuridico foreign key (fkFornecedor) references fornecedorJuridico(idFornecedor);
 alter table telefoneFornecedorJuridico add constraint fk_telefoneFornecedorJuridico foreign key (fkFornecedor) references fornecedorJuridico(idFornecedor);
-alter table grupoProduto add constraint fk_grupoProduto foreign key (fkProduto) references produto(idProduto);
-alter table marca add constraint fk_marcaProduto foreign key (fkProduto) references produto(idProduto);
+#alter table grupoProduto add constraint fk_grupoProduto foreign key (fkProduto) references produto(idProduto);
+#alter table marca add constraint fk_marcaProduto foreign key (fkProduto) references produto(idProduto);
+alter table produto add constraint fk_marca foreign key (fkmarca) references marca(idMarca);
+alter table produto add constraint fk_grupoProduto foreign key (fkGrupoProduto) references grupoProduto(idGrupo);
 alter table produtoFornecedor add constraint fk_produtoFornecedor foreign key (fkProduto) references produto(idProduto);
 alter table produtoFornecedor add constraint fk_fornecedorJurProdutoFornecedor foreign key (fkFornecedorJuridico) references fornecedorJuridico(idFornecedor);
 alter table produtoFornecedor add constraint fk_fornecedorFisProdutoFornecedor foreign key (fkFornecedorFisico) references fornecedorFisico(idFornecedor);
 alter table produtoMaterial add constraint fk_produtoProdutoMaterial foreign key (fkProduto) references produto(idProduto);
 alter table produtoMaterial add constraint fk_materialProdutoMaterial foreign key (fkMaterial) references material(idMaterial);
 alter table grupoServico add constraint fk_servicoGrupoServico foreign key (fkServico) references servico(idServico);
-
 
 #INSERTS PADROES DO SISTEMA
 insert into setor (
@@ -386,3 +387,27 @@ values (
     '', 
     'PE', 
     1);
+    
+insert into material (
+	idMaterial, 
+	nomeMaterial) 
+values (
+	NULL, 
+	'Algodão');
+
+insert into grupoProduto (
+	idGrupo, 
+    nomeGrupo) 
+values (
+	NULL, 
+    'Camisa');
+    
+insert into marca (
+	idMarca, 
+    nomeMarca) 
+values (
+	NULL,
+    'Nike'), (
+	NULL,
+    'Adidas');
+    

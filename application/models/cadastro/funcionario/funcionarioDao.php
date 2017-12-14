@@ -390,7 +390,7 @@
 					$dados['nome'], 
 					$dados['cpf'], 
 					$dados['usuario'], 
-					$dados['senha'], 
+					MD5($dados['senha']), 
 					$dados['dataNascimento'], 
 					$dados['setor'], 
 					$dados['funcao'], 
