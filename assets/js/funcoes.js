@@ -124,7 +124,7 @@ function buscarCep(cep)
     else 
     {
 
-        return false;
+        // return false;
         //cep sem valor, limpa formulário.
         // limpa_formulário_cep();
     }
