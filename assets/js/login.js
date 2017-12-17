@@ -4,6 +4,8 @@ $(document).ready(function(){
 
 	// alert(usuario, senha);
 
+	$("#usuario").focus();
+
 	//logar ao apertar enter no campo senha
 	$("#senha").on('keypress', function(e){
 

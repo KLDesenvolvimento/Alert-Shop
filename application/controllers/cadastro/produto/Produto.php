@@ -18,8 +18,7 @@
 			$dados['material'] = $this->produtoDao->getMaterial();
 			$dados['grupo'] = $this->produtoDao->getGrupo();
 			$dados['marca'] =$this->produtoDao->getMarca();
-			// $dados['fornecedorPf'] = $this->produtoDao->getFornecedorPf();
-			// $dados['fornecedorPj'] = $this->produtoDao->getFornecedorPj();
+			$dados['fornecedor'] = $this->produtoDao->getFornecedor();
 
 			if($dados)
 			{

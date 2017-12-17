@@ -268,7 +268,7 @@
 				<label id="mensagem" name="mensagem"></label>
 			</div>
 			<div class="modal-footer" style="text-align: center;">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="fecharModal" name="fecharModal">Fechar</button>
 			</div>
 		</div>
 	</div>

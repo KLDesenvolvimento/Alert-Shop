@@ -12,6 +12,8 @@ $(document).ready(function(){
 	
 	});
 
+	$("#nome").focus();
+
 	var funcao = document.getElementById("funcao");
 	var funcao = funcao.options[funcao.selectedIndex].value;
 
@@ -173,8 +175,20 @@ $(document).ready(function(){
 
 			var msg = "Campo nome não pode estar vazio.";
 
+			// alert(msg);
+
+
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function (){
+
+		        	$('#nome').focus();
+
+		    	}, 100);
+
+			});
 			return false;
 
 		}
@@ -186,17 +200,35 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#cpf").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
 
-		if(sexo == "")
+		if($("#sexo").prop('checked') == false)
 		{
 
 			var msg = "Selecione um sexo.";
 			
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#sexo").focus();
+
+				}, 100);
+
+			});
 			return false;
 
 
@@ -209,6 +241,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#usuario").focus();
+
+				},100);
+
+			});
 			return false;
 			
 		}
@@ -220,6 +261,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#senha").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
@@ -231,6 +281,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#funcao").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
@@ -242,6 +301,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				seTimeout(function(){
+
+					$("#setor").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
@@ -287,8 +355,20 @@ $(document).ready(function(){
 
 			var msg = "Campo nome não pode estar vazio.";
 
+			// alert(msg);
+
+
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function (){
+
+		        	$('#nome').focus();
+
+		    	}, 100);
+
+			});
 			return false;
 
 		}
@@ -300,17 +380,35 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#cpf").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
 
-		if(sexo == "")
+		if($("#sexo").prop('checked') == false)
 		{
 
 			var msg = "Selecione um sexo.";
 			
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#sexo").focus();
+
+				}, 100);
+
+			});
 			return false;
 
 
@@ -323,6 +421,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#usuario").focus();
+
+				},100);
+
+			});
 			return false;
 			
 		}
@@ -334,6 +441,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#senha").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
@@ -345,6 +461,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				setTimeout(function(){
+
+					$("#funcao").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}
@@ -356,6 +481,15 @@ $(document).ready(function(){
 
 			$("#alerta").modal();
 			$("#mensagem").html(msg);
+			$("#fecharModal").on('click', function(){
+
+				seTimeout(function(){
+
+					$("#setor").focus();
+
+				}, 100);
+
+			});
 			return false;
 			
 		}

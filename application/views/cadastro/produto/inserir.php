@@ -17,6 +17,8 @@
 				<div class="panel-body">
 					
 					<form action="<?php echo base_url(''); ?>" method="POST" accept-charset="utf-8">
+
+						<input type="hidden" name="url" id="url" value="<?php base_url('cadastrar-produto'); ?>">
 					
 						<div class="row">
 							
@@ -84,19 +86,20 @@
 								</div>
 							</div>
 
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-								<div class="form-group">
-									<label>Fornecedor PF</label>
-									<select class="form-control" id="fornecedorPf" name="fornecedorPf">
-										<option value="">Selecione</option>
-									</select>
-								</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+									<label>Fornecedor</label>
+									<div class="form-group">
+										
+										<label>Pessoa Física</label>
+										<input type="checkbox" name="fornecedorPf" value="1" id="fornecedorPf">
+										
+									</div>
 							</div>
 
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 								<div class="form-group">
-									<label>Fornecedor PJ</label>
-									<select class="form-control" id="fornecedorPj" name="fornecedorPj">
+									<label>Fornecedor</label>
+									<select class="form-control" id="fornecedor" name="fornecedor">
 										<option value="">Selecione</option>
 									</select>
 								</div>

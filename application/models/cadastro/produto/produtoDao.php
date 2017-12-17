@@ -12,6 +12,39 @@
 
 		}
 
+		public function getFornecedor()
+		{
+
+			
+
+				$sql = "SELECT 
+						idFornecedor, 
+						nomeFantasia 
+						FROM 
+						fornecedorJuridico 
+						ORDER BY 
+						nomeFantasia 
+						ASC";
+
+				$query = $this->db->query($sql);
+
+				if($query)
+				{
+
+					return $query->result();
+
+				}
+				else
+				{
+
+					return false;
+
+				}
+
+			
+
+		}
+
 		public function getMarca()
 		{
 
