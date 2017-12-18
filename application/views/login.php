@@ -42,6 +42,10 @@
 	 						</div>
 	 					</div>
 
+	 					<!-- <div class="alert alert-success" role="alert">
+						  <a href="#" class="alert-link">...</a>
+						</div>
+ -->
 	 					<div class="row">
 	 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-lg-offset-4">
 	 							<div class="form-group">

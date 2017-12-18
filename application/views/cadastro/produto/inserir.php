@@ -16,7 +16,7 @@
 
 				<div class="panel-body">
 					
-					<form action="<?php echo base_url(''); ?>" method="POST" accept-charset="utf-8">
+					<form action="<?php echo base_url(''); ?>" method="POST" accept-charset="utf-8" id="inserirProduto" name="inserirProduto">
 
 						<input type="hidden" name="url" id="url" value="<?php base_url('cadastrar-produto'); ?>">
 					
@@ -101,6 +101,14 @@
 									<label>Fornecedor</label>
 									<select class="form-control" id="fornecedor" name="fornecedor">
 										<option value="">Selecione</option>
+
+										<?php foreach($fornecedor as $row){ ?>
+										
+											<option value="<?php echo $row->idFornecedor ?>"><?php echo $row->nomeFantasia ?></option>
+
+										<?php } ?>
+
+
 									</select>
 								</div>
 							</div>
@@ -152,7 +160,7 @@
 				<label id="mensagem" name="mensagem"></label>
 			</div>
 			<div class="modal-footer" style="text-align: center;">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="fecharModal" name="fecharModal">Fechar</button>
 			</div>
 		</div>
 	</div>

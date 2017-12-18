@@ -163,7 +163,7 @@ create table telefoneFornecedorFisico(
 
 create table fornecedorJuridico(
 	idFornecedor int primary key auto_increment,
-	nomeFatasia varchar(150) not null,
+	nomeFantasia varchar(150) not null,
 	razaoSocial varchar(150) not null,
 	inscEstFornecedor varchar(20) not null,
 	cnpjFornecedor varchar(20) not null,
