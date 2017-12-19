@@ -6,11 +6,11 @@ $(document).ready(function(){
 
         var fornecedor = $("#fornecedorPf").val();
 
-        // alert($("#fornecedorPf").val());
+        alert($("#fornecedorPf").val());
 
 		$.ajax({
 
-        url: "http://localhost/alert_shop/cadastrar-produto",
+        url: "http://192.168.0.155/alert_shop/cadastrar-produto",
         data: fornecedor,
         datatype: 'json',
         type: 'POST',

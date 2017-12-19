@@ -15,12 +15,14 @@
 		public function produto()
 		{
 
-			$dados['tipoFornecedor'] = $this->input->post();
+			$fornecedor = $this->input->post();
+
+			var_dump($fornecedor);
 
 			$dados['material'] = $this->produtoDao->getMaterial();
 			$dados['grupo'] = $this->produtoDao->getGrupo();
 			$dados['marca'] =$this->produtoDao->getMarca();
-			$dados['fornecedor'] = $this->produtoDao->getFornecedor($dados['tipoFornecedor']);
+			$dados['fornecedor'] = $this->produtoDao->getFornecedor($fornecedor);
 
 
 			if($dados)
@@ -30,9 +32,9 @@
 				$data['includeJs'] = $include;
 
 				$this->load->view('cabecalho', $data);
-				$this->load->view('cadastro/produto/inserir');
+				$this->load->view('cadastro/produto/inserir', $data);
 
-				echo json_encode($dados);
+				return json_encode($dados);
 
 			}
 			else

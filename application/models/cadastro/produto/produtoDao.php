@@ -15,8 +15,9 @@
 		public function getFornecedor($dados)
 		{
 
-			
-				if($dados == 1)
+			var_dump($dados);
+
+				if($dados['on'] == 1)
 				{
 
 					$sql = "SELECT 
