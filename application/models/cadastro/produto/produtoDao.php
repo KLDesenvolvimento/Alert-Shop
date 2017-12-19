@@ -12,21 +12,40 @@
 
 		}
 
-		public function getFornecedor()
+		public function getFornecedor($dados)
 		{
 
 			
+				if($dados == 1)
+				{
 
-				$sql = "SELECT 
-						idFornecedor, 
-						nomeFantasia 
-						FROM 
-						fornecedorJuridico 
-						ORDER BY 
-						nomeFantasia 
-						ASC";
+					$sql = "SELECT 
+							idFornecedor, 
+							nomeFantasia 
+							FROM 
+							fornecedorJuridico 
+							ORDER BY 
+							nomeFantasia 
+							ASC";
 
-				$query = $this->db->query($sql);
+					$query = $this->db->query($sql);
+
+				}
+				else
+				{
+
+					$sql = "SELECT 
+							idFornecedor, 
+							nomeFornecedor  
+							FROM 
+							fornecedorFisico 
+							ORDER BY 
+							nomeFornecedor 
+							ASC";
+
+					$query = $this->db->query($sql);
+
+				}
 
 				if($query)
 				{

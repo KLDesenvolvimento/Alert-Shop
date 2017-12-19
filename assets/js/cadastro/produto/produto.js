@@ -4,28 +4,19 @@ $(document).ready(function(){
 
 	$("#fornecedor").on('click', function(){
 
-		var url = $("#url").val();
+        var fornecedor = $("#fornecedorPf").val();
+
+        // alert($("#fornecedorPf").val());
 
 		$.ajax({
 
-        url: url,
+        url: "http://localhost/alert_shop/cadastrar-produto",
+        data: fornecedor,
         datatype: 'json',
-        contentType: 'application/json; charset=utf-8',
         type: 'POST',
-        data: JSON.stringify({ _fornecedor: $('#fornecedor').val() }),
         success: function (data) {
 
-            str += '<option value="E">Todos</option>';
-
-            $(data.idFornecedor).each(function () {
-
-                str += '<option value=' + this.Cidade + '>' + this.Cidade + '</option>';
-
-            })
-
-            $('#cbxCidade').html(str);
-
-            str = "";
+            console.log(data);
         },
         error: function (error) {
         }
