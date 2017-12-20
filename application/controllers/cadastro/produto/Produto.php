@@ -32,7 +32,7 @@
 				$data['includeJs'] = $include;
 
 				$this->load->view('cabecalho', $data);
-				$this->load->view('cadastro/produto/inserir', $data);
+				$this->load->view('cadastro/produto/inserir');
 
 				return json_encode($dados);
 

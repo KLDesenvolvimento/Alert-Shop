@@ -17,23 +17,23 @@
 
 			var_dump($dados);
 
-				if($dados['on'] == 1)
-				{
+				// if($dados == 1)
+				// {
 
-					$sql = "SELECT 
-							idFornecedor, 
-							nomeFantasia 
-							FROM 
-							fornecedorJuridico 
-							ORDER BY 
-							nomeFantasia 
-							ASC";
+				// 	$sql = "SELECT 
+				// 			idFornecedor, 
+				// 			nomeFantasia 
+				// 			FROM 
+				// 			fornecedorJuridico 
+				// 			ORDER BY 
+				// 			nomeFantasia 
+				// 			ASC";
 
-					$query = $this->db->query($sql);
+				// 	$query = $this->db->query($sql);
 
-				}
-				else
-				{
+				// }
+				// else
+				// {
 
 					$sql = "SELECT 
 							idFornecedor, 
@@ -46,7 +46,7 @@
 
 					$query = $this->db->query($sql);
 
-				}
+				// }
 
 				if($query)
 				{

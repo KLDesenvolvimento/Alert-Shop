@@ -411,3 +411,32 @@ values (
 	NULL,
     'Adidas');
     
+insert into fornecedorJuridico (
+	idFornecedor, 
+    nomeFantasia, 
+    RazaoSocial, 
+    inscEstFornecedor, 
+	cnpjFornecedor, 
+	emailFornecedor) 
+    values (
+    NULL, 
+    'Nike', 
+    'Nike', 
+    'Isento', 
+    '59.546.515/0001-34', 
+    'nike@hotmail.com');
+    
+insert into fornecedorFisico (
+	idFornecedor, 
+    nomeFornecedor, 
+    cpfFornecedor, 
+    rgFornecedor, 
+	sexoFornecedor, 
+	emailFornecedor) 
+    values (
+    NULL, 
+    'Adidas', 
+    '123', 
+    '456', 
+    'Masculino', 
+    'adidas@hotmail.com');

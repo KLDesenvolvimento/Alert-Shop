@@ -2,27 +2,31 @@ $(document).ready(function(){
 
 	$("#codigo").focus();
 
-	$("#fornecedor").on('click', function(){
+	// $("#fornecedor").on('click', function(){
 
-        var fornecedor = $("#fornecedorPf").val();
+ //        var fornecedor = $("#fornecedorPf").val();
+ //        var url = $("#url").val();
 
-        alert($("#fornecedorPf").val());
+ //        alert($("#fornecedorPf").val());
 
-		$.ajax({
+	// 	$.ajax({
 
-        url: "http://192.168.0.155/alert_shop/cadastrar-produto",
-        data: fornecedor,
-        datatype: 'json',
-        type: 'POST',
-        success: function (data) {
+ //        url: url,
+ //        data: fornecedor,
+ //        datatype: 'json',
+ //        type: 'POST',
+ //        success: function (data) {
 
-            console.log(data);
-        },
-        error: function (error) {
-        }
-    })
+ //            alert(data);
+ //        },
+ //        error: function (error) {
 
-	});
+ //            alert("erro");
+
+ //        }
+ //    })
+
+	// });
 
 	$('#prcCompra').mask('0.000.000,00', {placeholder: "0,00",reverse: true});
 	$('#prcVenda').mask('0.000.000,00', {placeholder: "0,00",reverse: true});
