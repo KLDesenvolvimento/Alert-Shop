@@ -15,29 +15,12 @@
 		public function getFornecedor($dados)
 		{
 
-			var_dump($dados);
-
-				// if($dados == 1)
-				// {
-
-				// 	$sql = "SELECT 
-				// 			idFornecedor, 
-				// 			nomeFantasia 
-				// 			FROM 
-				// 			fornecedorJuridico 
-				// 			ORDER BY 
-				// 			nomeFantasia 
-				// 			ASC";
-
-				// 	$query = $this->db->query($sql);
-
-				// }
-				// else
-				// {
+				if($dados == 1)
+				{
 
 					$sql = "SELECT 
 							idFornecedor, 
-							nomeFornecedor  
+							nomeFornecedor 
 							FROM 
 							fornecedorFisico 
 							ORDER BY 
@@ -46,20 +29,50 @@
 
 					$query = $this->db->query($sql);
 
-				// }
+					if($query)
+					{
 
-				if($query)
-				{
+						return $query->result();
 
-					return $query->result();
+					}
+					else
+					{
+
+						return false;
+
+					}
 
 				}
 				else
 				{
 
-					return false;
+					$sql = "SELECT 
+							idFornecedor, 
+							nomeFantasia  
+							FROM 
+							fornecedorJuridico 
+							ORDER BY 
+							nomeFantasia 
+							ASC";
+
+					$query = $this->db->query($sql);
+
+					if($query)
+					{
+
+						return $query->result();
+
+					}
+					else
+					{
+
+						return false;
+
+					}
 
 				}
+				
+
 
 			
 

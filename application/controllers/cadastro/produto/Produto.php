@@ -15,14 +15,9 @@
 		public function produto()
 		{
 
-			$fornecedor = $this->input->post();
-
-			var_dump($fornecedor);
-
 			$dados['material'] = $this->produtoDao->getMaterial();
 			$dados['grupo'] = $this->produtoDao->getGrupo();
 			$dados['marca'] =$this->produtoDao->getMarca();
-			$dados['fornecedor'] = $this->produtoDao->getFornecedor($fornecedor);
 
 
 			if($dados)
@@ -43,6 +38,17 @@
 				return false;
 
 			}
+
+		}
+
+		public function getFornecedor()
+		{
+
+			$fornecedor = $this->input->post();
+
+			$retorno = $this->produtoDao->getFornecedor($fornecedor);
+
+			echo json_encode($retorno);
 
 		}
 

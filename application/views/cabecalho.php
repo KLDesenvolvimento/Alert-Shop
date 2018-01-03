@@ -13,13 +13,13 @@
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     <?php echo isset($includeJs) ? $includeJs : '' ?>
 	<title>Alert Shop</title>
+    <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url(); ?>">
 </head>
 <body>
 	
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <!-- <a href="<?php echo base_url('home'); ?>" id="logo" name="logo" class="navbar-brand">Alert Shop</a> -->
                 <a href="<?php echo base_url('home'); ?>"><img src="<?php echo base_url('img/logo_kl.jpeg'); ?>" alt="logo_empresa" style="width:50px; height:40px;position:relative;float:top;top:5px" class="img-circle"></a>
             </div>
             <ul class="nav navbar-nav">

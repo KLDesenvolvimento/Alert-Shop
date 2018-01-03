@@ -100,15 +100,8 @@
 								<div class="form-group">
 									<label>Fornecedor</label>
 									<select class="form-control" id="fornecedor" name="fornecedor">
-										<option value="">Selecione</option>
-
-										<?php foreach($fornecedor as $row){ ?>
-										
-											<option value="<?php echo $row->idFornecedor ?>"><?php echo $row->nomeFantasia ?></option>
-
-										<?php } ?>
-
-
+										<option value=''>Selecione</option>
+										<option id="option"></option>
 									</select>
 								</div>
 							</div>

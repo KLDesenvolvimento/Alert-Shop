@@ -1,32 +1,67 @@
 $(document).ready(function(){
 
+    var base_url = $("#base_url").val();
+
 	$("#codigo").focus();
 
-	// $("#fornecedor").on('click', function(){
+    $("#fornecedor").on('click', function(){
 
- //        var fornecedor = $("#fornecedorPf").val();
- //        var url = $("#url").val();
+        var tipoFornecedor;
 
- //        alert($("#fornecedorPf").val());
+        $("#fornecedorPf").is(':checked') ? tipoFornecedor = 1 : tipoFornecedor = 0;
 
-	// 	$.ajax({
+        $.ajax({
 
- //        url: url,
- //        data: fornecedor,
- //        datatype: 'json',
- //        type: 'POST',
- //        success: function (data) {
+            url: base_url + 'cadastro/produto/Produto/getFornecedor',
+            data: tipoFornecedor,
+            datatype: 'json',
+            type: 'POST',
+            success: function(data)
+            {
 
- //            alert(data);
- //        },
- //        error: function (error) {
+                var data = JSON.parse(data);
 
- //            alert("erro");
+                var html = '';
 
- //        }
- //    })
+                if(tipoFornecedor == 1)
+                {
 
-	// });
+
+                    for(var indice = 0; indice < data.length; indice++)
+                    {
+
+                        console.log(data);
+
+                        html += '<option value="'+data[indice].idFornecedor+'">'+data[indice].nomeFornecedor+'</option>';
+
+                    }
+
+                }
+                else
+                {
+
+                    for(var indice = 0; indice < data.length; indice++)
+                    {
+
+                        html += '<option value="'+data[indice].idFornecedor+'">'+data[indice].nomeFantasia+'</option>';
+
+                    }
+
+                }
+
+               $("#option").html(html);
+
+            },
+            error: function(data)
+            {
+
+                alert('erro');
+
+            }
+
+        })
+
+    });
 
 	$('#prcCompra').mask('0.000.000,00', {placeholder: "0,00",reverse: true});
 	$('#prcVenda').mask('0.000.000,00', {placeholder: "0,00",reverse: true});
